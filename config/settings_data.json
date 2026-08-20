@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "header": "header-1",
@@ -649,18 +658,11 @@
               "width": "16%"
             }
           },
-          "f7220485-36c0-486c-a184-4898421bbc94": {
-            "type": "menu",
-            "settings": {
-              "link_list": "",
-              "width": "16%"
-            }
-          },
           "ec49d85b-17bb-4b65-a49f-3086aa5430cd": {
             "type": "newsletter",
             "settings": {
-              "bg_new": "#FFF7ED",
-              "border_new": "#E51B20",
+              "bg_new": "#fff7ed",
+              "border_new": "#e51b20",
               "title": "JOIN THE BAAN TABLE",
               "subheading": "<p>Discover new pickle flavours, serving ideas and occasional offers.</p>",
               "enablesocial": false,
@@ -678,6 +680,9 @@
         "settings": {
           "setwidth": "container",
           "padding_footer": "64px",
+          "top_background": "#fff8f1",
+          "main_background": "#ffffff",
+          "footer_radius": 0,
           "enable_footertop": true,
           "block_phone": true,
           "phone_txt": "CALL US 24/7",
@@ -689,23 +694,20 @@
           "social_txt": "FOLLOW US",
           "block_payment": true,
           "payment_info": "svg",
-          "text": "#6B5B55",
-          "text_hover": "#E51B20",
+          "text": "#6b5b55",
+          "text_hover": "#e51b20",
           "title": "#751610",
-          "background": "#FFFFFF",
+          "background": "#ffffff",
           "border_headfooter": "#fcf4eb",
           "ft_border": "#e9e9e9",
-          "ft_color_main": "#E51B20",
-          "ft_color_s": "#3A2925",
+          "ft_color_main": "#e51b20",
+          "ft_color_s": "#3a2925",
           "background_bot": "#751610",
           "border-copryright": "#e2e2e2",
-          "text_copy": "#FFF7ED",
+          "text_copy": "#fff7ed",
           "type_text_title": true,
           "copyright": true,
-          "customcopyright": "© 2026 Baan Foods. All rights reserved.",
-          "top_background": "#FFF8F1",
-          "main_background": "#FFFFFF",
-          "footer_radius": 0
+          "customcopyright": "© 2026 Baan Foods. All rights reserved."
         }
       },
       "product-template-1": {
@@ -3365,16 +3367,16 @@
               "pos_t": 8,
               "pos_b": 8,
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM_2.jpg",
-              "width": "8",
-              "description": "",
+              "image_position": "center center",
+              "width": "4",
+              "description": "<p>Spicy</p><h2>Traditional Pickles</h2>",
               "colordef": "#f4f1f1",
               "style_btn": "btn-underline btn-underline-white",
               "button_text": "Shop Pickles",
               "button_link": "shopify://collections/all-pickles",
               "vertical": "top",
               "horizontal": "left",
-              "text_align": "left",
-              "image_position": "center center"
+              "text_align": "left"
             }
           },
           "1643431803ff245ae0-0": {
@@ -3387,16 +3389,16 @@
               "pos_t": 8,
               "pos_b": 8,
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM.jpg",
+              "image_position": "center center",
               "width": "4",
               "description": "<p>LIGHT · CRISP · COLOURFUL</p><h2>Freeze-Dried Fruits & Vegetables</h2>",
-              "colordef": "#fcf9f3",
+              "colordef": "#0B0B0B",
               "style_btn": "btn-underline btn-underline-heading",
               "button_text": "Explore Range",
               "button_link": "shopify://collections/freeze-dried-fruits-vegetables",
-              "vertical": "mid",
+              "vertical": "top",
               "horizontal": "left",
-              "text_align": "left",
-              "image_position": "center center"
+              "text_align": "left"
             }
           },
           "0fe3d94d-b3b8-477b-a261-883c9646d09b": {
@@ -3409,16 +3411,16 @@
               "pos_t": 8,
               "pos_b": 8,
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM_1.jpg",
-              "width": "8",
+              "image_position": "center center",
+              "width": "4",
               "description": "<p>KERALA FAVOURITES</p><h2>Traditional Snacks, Made to Share</h2>",
               "colordef": "#fcf9f3",
               "style_btn": "btn-underline btn-underline-heading",
               "button_text": "Explore Snacks",
               "button_link": "shopify://collections/traditional-kerala-snacks",
-              "vertical": "mid",
+              "vertical": "top",
               "horizontal": "left",
-              "text_align": "left",
-              "image_position": "center center"
+              "text_align": "left"
             }
           }
         },
@@ -3568,75 +3570,6 @@
           "e_link": ""
         }
       },
-      "1647185338ea45cb09": {
-        "type": "product-tab",
-        "blocks": {
-          "1647185338ea45cb09-0": {
-            "type": "collection",
-            "settings": {
-              "title": "Eggs",
-              "collection": "dairy-bread-eggs"
-            }
-          },
-          "1647185338ea45cb09-1": {
-            "type": "collection",
-            "settings": {
-              "title": "Green",
-              "collection": "leafy-green"
-            }
-          },
-          "1647185338ea45cb09-2": {
-            "type": "collection",
-            "settings": {
-              "title": "Package",
-              "collection": "package-foods"
-            }
-          }
-        },
-        "block_order": [
-          "1647185338ea45cb09-0",
-          "1647185338ea45cb09-1",
-          "1647185338ea45cb09-2"
-        ],
-        "disabled": true,
-        "settings": {
-          "animation": "fade-up",
-          "paddingsection": "0px 0px 0px 0px",
-          "paddingmobile": "60px 0px 60px 0px",
-          "marginsection": "0px 0px 0px 0px",
-          "marginmobile": "0px 0px 0px 0px",
-          "bgsection": "rgba(0,0,0,0)",
-          "enable_inner": true,
-          "padding_inner": "30px 30px 30px 30px",
-          "padding_inner_mobile": "8px 8px 8px 8px",
-          "bg_inner": "#ffffff",
-          "setwidth": "container",
-          "sectionheading": "heading-0",
-          "dot_heading0": "#eb3069",
-          "title_top": "",
-          "title": "Shop Sales",
-          "des": "",
-          "e_banner": true,
-          "r_banner": false,
-          "text-bannertab": "Season Discount",
-          "color_toptext": "#ffffff",
-          "text-bannertab_title": "$29.99",
-          "color_titletext": "#ffc371",
-          "text-bannertab_des": "Delivery of Dry Goods",
-          "color_destext": "#ffffff",
-          "text_linkbanner": "Shop Now",
-          "text_link": "",
-          "arrows": true,
-          "draggable": true,
-          "dots": false,
-          "infinite": false,
-          "rows": "1",
-          "limit": 8,
-          "show": 4,
-          "e_linkall": "Shop All",
-          "e_link": ""
-        }
-      },
       "1647185823484a4508": {
         "type": "grid-banner",
         "blocks": {
@@ -3650,16 +3583,16 @@
               "pos_t": 5,
               "pos_b": 8,
               "image": "shopify://shop_images/WhatsApp_Image_2026-08-13_at_19.31.03.jpg",
+              "image_position": "center center",
               "width": "8",
               "description": "<p class=\"mb-2\">AUTHENTIC KERALA FLAVOUR</p><h3 class=\"mb-1\">A little tradition<br>in every jar.</h3>",
-              "colordef": "#FFFFFF",
+              "colordef": "#ffffff",
               "style_btn": "btn-underline btn-underline-white",
               "button_text": "Explore all pickles",
               "button_link": "shopify://collections/all-pickles",
               "vertical": "mid",
               "horizontal": "left",
-              "text_align": "left",
-              "image_position": "center center"
+              "text_align": "left"
             }
           },
           "90f16193-8d60-4c02-8d91-8f61f2b74c34": {
@@ -3670,9 +3603,9 @@
               "enable_icon": true,
               "color_svg": "#ffffff",
               "title_promomail": "Join the Baan Table",
-              "color_title": "#FFFFFF",
+              "color_title": "#ffffff",
               "des_promomail": "Recipes, new flavours and thoughtful offers — delivered occasionally.",
-              "color_des": "#FFFFFF",
+              "color_des": "#ffffff",
               "image_email": "shopify://shop_images/magnific_change-size-yo-169_TddASsSVNR_ec9756c9-0a6c-4a5a-ad5b-7555e7ed4d9a.png"
             }
           }
@@ -3709,144 +3642,6 @@
           "banner_gap": 18
         }
       },
-      "1647186173930ba611": {
-        "type": "product-tab",
-        "blocks": {
-          "1647186173930ba611-0": {
-            "type": "collection",
-            "settings": {
-              "title": "Fresh Meat",
-              "collection": "meat-seafood"
-            }
-          },
-          "1647186173930ba611-1": {
-            "type": "collection",
-            "settings": {
-              "title": "Healthy",
-              "collection": "health-wellness"
-            }
-          },
-          "1647186173930ba611-2": {
-            "type": "collection",
-            "settings": {
-              "title": "Leafy",
-              "collection": "leafy-green"
-            }
-          }
-        },
-        "block_order": [
-          "1647186173930ba611-0",
-          "1647186173930ba611-1",
-          "1647186173930ba611-2"
-        ],
-        "disabled": true,
-        "settings": {
-          "animation": "fade-up",
-          "paddingsection": "30px 0px 0px 0px",
-          "paddingmobile": "30px 0px 0px 0px",
-          "marginsection": "0px 0px 0px 0px",
-          "marginmobile": "0px 0px 0px 0px",
-          "bgsection": "rgba(0,0,0,0)",
-          "enable_inner": true,
-          "padding_inner": "30px 30px 30px 30px",
-          "padding_inner_mobile": "8px 8px 8px 8px",
-          "bg_inner": "#ffffff",
-          "setwidth": "container",
-          "sectionheading": "heading-0",
-          "dot_heading0": "#ec9f3a",
-          "title_top": "",
-          "title": "Shop Popular",
-          "des": "",
-          "e_banner": true,
-          "r_banner": false,
-          "text-bannertab": "Hot This Week",
-          "color_toptext": "#ffffff",
-          "text-bannertab_title": "$15.55 Off",
-          "color_titletext": "#addb2c",
-          "text-bannertab_des": "Spices & Flavours",
-          "color_destext": "#ffffff",
-          "text_linkbanner": "Shop Now",
-          "text_link": "",
-          "arrows": true,
-          "draggable": true,
-          "dots": false,
-          "infinite": false,
-          "rows": "1",
-          "limit": 8,
-          "show": 4,
-          "e_linkall": "Shop All",
-          "e_link": ""
-        }
-      },
-      "16471865744feef2a6": {
-        "type": "product-tab",
-        "blocks": {
-          "16471865744feef2a6-0": {
-            "type": "collection",
-            "settings": {
-              "title": "Candy",
-              "collection": "grocery-staples"
-            }
-          },
-          "16471865744feef2a6-1": {
-            "type": "collection",
-            "settings": {
-              "title": "Vegetables",
-              "collection": "fruits-vegetables"
-            }
-          },
-          "16471865744feef2a6-2": {
-            "type": "collection",
-            "settings": {
-              "title": "Daily Breads",
-              "collection": "dairy-bread-eggs"
-            }
-          }
-        },
-        "block_order": [
-          "16471865744feef2a6-0",
-          "16471865744feef2a6-1",
-          "16471865744feef2a6-2"
-        ],
-        "disabled": true,
-        "settings": {
-          "animation": "fade-up",
-          "paddingsection": "30px 0px 30px 0px",
-          "paddingmobile": "30px 0px 0px 0px",
-          "marginsection": "0px 0px 0px 0px",
-          "marginmobile": "0px 0px 0px 0px",
-          "bgsection": "rgba(0,0,0,0)",
-          "enable_inner": true,
-          "padding_inner": "30px 30px 30px 30px",
-          "padding_inner_mobile": "8px 8px 8px 8px",
-          "bg_inner": "#ffffff",
-          "setwidth": "container",
-          "sectionheading": "heading-0",
-          "dot_heading0": "#7bcae1",
-          "title_top": "Sub Title Top",
-          "title": "Top Rated",
-          "des": "",
-          "e_banner": true,
-          "r_banner": false,
-          "text-bannertab": "Buy 2 Get",
-          "color_toptext": "#ffffff",
-          "text-bannertab_title": "20% Off",
-          "color_titletext": "#f8a904",
-          "text-bannertab_des": "Until July 29th",
-          "color_destext": "#ffffff",
-          "text_linkbanner": "Shop Now",
-          "text_link": "",
-          "arrows": true,
-          "draggable": true,
-          "dots": true,
-          "infinite": true,
-          "rows": "1",
-          "limit": 8,
-          "show": 4,
-          "e_linkall": "Shop All",
-          "e_link": ""
-        }
-      },
       "16475101424d866485": {
         "type": "categories",
         "blocks": {
@@ -3855,10 +3650,10 @@
             "settings": {
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM_2.jpg",
               "title": "Pickles",
-              "collection": "all-pickles",
-              "linklist": "",
               "description": "Mango · Dates, cherry & raisins · Yam & dates · Papaya · Lemon · Papaya chilli mix",
-              "button_label": "Shop pickles"
+              "button_label": "Shop pickles",
+              "collection": "all-pickles",
+              "linklist": ""
             }
           },
           "16475101424d866485-1": {
@@ -3866,10 +3661,10 @@
             "settings": {
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM.jpg",
               "title": "Freeze-Dried Fruits & Vegetables",
-              "collection": "freeze-dried-fruits-vegetables",
-              "linklist": "",
               "description": "Colourful vegetables and fruits, made light and crisp",
-              "button_label": "Explore freeze-dried"
+              "button_label": "Explore freeze-dried",
+              "collection": "freeze-dried-fruits-vegetables",
+              "linklist": ""
             }
           },
           "16475101424d866485-2": {
@@ -3877,10 +3672,10 @@
             "settings": {
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM_1.jpg",
               "title": "Traditional Kerala Snacks",
-              "collection": "traditional-kerala-snacks",
-              "linklist": "",
               "description": "Crispy sweet rice flakes · Crispy sweet rice flakes with nuts",
-              "button_label": "Explore Kerala snacks"
+              "button_label": "Explore Kerala snacks",
+              "collection": "traditional-kerala-snacks",
+              "linklist": ""
             }
           }
         },
@@ -3893,8 +3688,8 @@
           "animation": "fade-up",
           "paddingsection": "0px 0px 30px 0px",
           "paddingmobile": "60px 0px 60px 0px",
-          "marginsection": "0px 0px 0px 0px",
-          "marginmobile": "0px 0px 0px 0px",
+          "marginsection": "30px 0px 0px 0px",
+          "marginmobile": "30px 0px 0px 0px",
           "bgsection": "rgba(0,0,0,0)",
           "enable_inner": true,
           "padding_inner": "30px 30px 30px 30px",
@@ -3912,12 +3707,12 @@
           "dots": false,
           "infinite": false,
           "title_cl": "#0a472e",
-          "list_cl": "#555555",
           "desktop_columns": 3,
           "card_height": 430,
           "card_gap": 18,
           "card_radius": 18,
-          "image_position": "center"
+          "image_position": "center",
+          "list_cl": "#555555"
         }
       },
       "164767408788fa21f1": {
@@ -4003,6 +3798,12 @@
           "padding-item": "30px 30px 30px 30px",
           "padding-itemmobile": "8px 8px 8px 8px",
           "iconcolor": "#222222",
+          "benefit_style": "flat",
+          "benefit_background": "#fff8f1",
+          "corner_radius": 16,
+          "outer_spacing": 16,
+          "item_gap": 12,
+          "item_padding": 16,
           "titlecolor": "#751610",
           "subcolor": "#645651",
           "layout": "style-1",
@@ -4016,74 +3817,7 @@
           "arrows": false,
           "draggable": true,
           "dots": true,
-          "infinite": true,
-          "benefit_style": "flat",
-          "benefit_background": "#FFF8F1",
-          "corner_radius": 16,
-          "outer_spacing": 16,
-          "item_gap": 12,
-          "item_padding": 16
-        }
-      },
-      "product_tab_8fVkLV": {
-        "type": "product-tab",
-        "blocks": {
-          "collection_KTxnAU": {
-            "type": "collection",
-            "settings": {
-              "title": "Spicy Pickles",
-              "collection": "spicy"
-            }
-          },
-          "collection_yKifzK": {
-            "type": "collection",
-            "settings": {
-              "title": "Swwt Pickles",
-              "collection": "sweet"
-            }
-          }
-        },
-        "block_order": [
-          "collection_KTxnAU",
-          "collection_yKifzK"
-        ],
-        "settings": {
-          "animation": "fade-up",
-          "paddingsection": "30px 0px 30px 0px",
-          "paddingmobile": "60px 0px 60px 0px",
-          "marginsection": "0px 0px 0px 0px",
-          "marginmobile": "0px 0px 0px 0px",
-          "bgsection": "rgba(0,0,0,0)",
-          "enable_inner": true,
-          "padding_inner": "30px 30px 30px 30px",
-          "padding_inner_mobile": "8px 8px 8px 8px",
-          "bg_inner": "#ffffff",
-          "setwidth": "container",
-          "sectionheading": "heading-0",
-          "dot_heading0": "#bac34e",
-          "title_top": "",
-          "title": "Pickles",
-          "des": "",
-          "e_banner": false,
-          "r_banner": false,
-          "image_bannertab": "shopify://shop_images/WhatsApp_Image_2026-08-13_at_19.31.03.jpg",
-          "text-bannertab": "Summer Sale",
-          "color_toptext": "#ffffff",
-          "text-bannertab_title": "50% Off",
-          "color_titletext": "#f1de78",
-          "text-bannertab_des": "All Products",
-          "color_destext": "#ffffff",
-          "text_linkbanner": "Shop Now",
-          "text_link": "",
-          "arrows": true,
-          "draggable": true,
-          "dots": false,
-          "infinite": false,
-          "rows": "1",
-          "limit": 8,
-          "show": 5,
-          "e_linkall": "Shop All",
-          "e_link": ""
+          "infinite": true
         }
       },
       "footer-7": {
