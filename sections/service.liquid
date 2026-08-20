@@ -67,10 +67,27 @@
   .customstyle{{ section.id }} .media{
     padding:{{section.settings.padding-item}};
   }
+  .customstyle{{ section.id }} .section-inner{overflow:hidden;border-radius:{{ section.settings.corner_radius }}px;background:{{ section.settings.benefit_background }}!important}
+  .customstyle{{ section.id }} .services-slider{margin:0!important;padding:{{ section.settings.outer_spacing }}px}
+  .customstyle{{ section.id }} .services-item{padding:{{ section.settings.item_gap | divided_by: 2 }}px!important}
+  .customstyle{{ section.id }} .service-1{height:100%;align-items:center;padding:{{ section.settings.item_padding }}px!important;transition:transform .25s ease,box-shadow .25s ease}
+  {%- if section.settings.benefit_style == 'cards' -%}
+  .customstyle{{ section.id }} .section-inner{border:1px solid rgba(117,22,16,.08);box-shadow:0 18px 46px rgba(67,16,12,.08)}
+  .customstyle{{ section.id }} .service-1{border:1px solid rgba(117,22,16,.08);border-radius:15px;background:#fff!important}
+  .customstyle{{ section.id }} .service-1:hover{transform:translateY(-4px);box-shadow:0 13px 28px rgba(117,22,16,.11)}
+  {%- else -%}
+  .customstyle{{ section.id }} .service-1{border:0;background:transparent!important}
+  {%- endif -%}
+  .customstyle{{ section.id }} .baan-benefit-icon{display:grid;place-items:center;flex:0 0 {{ section.settings.width_icon }}px;width:{{ section.settings.width_icon }}px;height:{{ section.settings.width_icon }}px;margin-right:18px!important;color:{{ section.settings.iconcolor }}!important}
+  .customstyle{{ section.id }} .baan-benefit-icon img{display:block;width:100%;height:100%;object-fit:contain}
+  .customstyle{{ section.id }} .baan-benefit-icon svg{width:25px!important;height:25px!important;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .customstyle{{ section.id }} .service-1 h6,.customstyle{{ section.id }} .service-1 h6 h6{margin:0 0 5px!important;color:{{ section.settings.titlecolor }}!important;font-size:15px!important;line-height:1.25}
+  .customstyle{{ section.id }} .service-1 small{display:block;color:#645651;font-size:11px;line-height:1.55}
   @media (max-width: 749px){
     .customstyle{{ section.id }} .media{
       padding:{{section.settings.padding-itemmobile}};
     }
+    .customstyle{{ section.id }} .service-1{padding:18px!important}
   }
 </style>
 <div class="customstyle{{ section.id }} {% if section.settings.layout == 'style-3' %} block-sv3 {% endif %} {% if section.settings.image_bg != blank %} lazyload {% endif %}" data-aos="{{section.settings.animation}}"
@@ -108,9 +125,18 @@ data-section-id="{{ section.id }}"  data-bg="{{ section.settings.image_bg | img_
           {%- case section.settings.layout -%}
           {%- when 'style-1' -%}
           <div class="media service-1 text-left {% if section.settings.effect  %} effect-column-underline {% endif %} position-relative" style="background-color:{{block.settings.bgblock}};">
-            {%- if block.settings.type_icon == 'font' -%}
-            <div class=" mr-4 iconx8" style="color:{{section.settings.iconcolor}};">
-              {{block.settings.icon | default:'[[ Icon ]]'}}
+            {%- if block.settings.image != blank -%}
+            <div class="mr-4 baan-benefit-icon">
+              <img src="{{ block.settings.image | img_url: '160x' }}" alt="{{ block.settings.title | strip_html | escape }}" loading="lazy">
+            </div>
+            {%- elsif block.settings.icon_choice != blank and block.settings.icon_choice != 'custom' -%}
+            {%- assign benefit_icon_asset = 'baan-benefit-' | append: block.settings.icon_choice | append: '.png' -%}
+            <div class="mr-4 baan-benefit-icon">
+              <img src="{{ benefit_icon_asset | asset_url }}" alt="" loading="lazy">
+            </div>
+            {%- elsif block.settings.type_icon == 'font' -%}
+            <div class="mr-4 iconx8 baan-benefit-icon" style="color:{{section.settings.iconcolor}};">
+              {{ block.settings.icon | default: '✦' }}
             </div>
             {%- else -%}
             <div class="mr-4" style="width: {{section.settings.width_icon}}px">
@@ -448,6 +474,62 @@ data-section-id="{{ section.id }}"  data-bg="{{ section.settings.image_bg | img_
         "default": "#222222"
     },
     {
+      "type": "select",
+      "id": "benefit_style",
+      "label": "Benefits layout",
+      "default": "flat",
+      "options": [
+        { "value": "flat", "label": "Flat Freshio style" },
+        { "value": "cards", "label": "Individual cards" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "benefit_background",
+      "label": "Benefits background",
+      "default": "#FFF8F1"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Section corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "outer_spacing",
+      "label": "Outer spacing",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Space between items",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Item padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
       "type": "color",
       "id": "titlecolor",
         "label": "Title Color",
@@ -601,6 +683,20 @@ data-section-id="{{ section.id }}"  data-bg="{{ section.settings.image_bg | img_
           "id": "icon",
           "label": "Icon",
 		      "info":"💡 [SVG Icon.](https:\/\/ap2020.myshopify.com\/pages\/html-builder#html-icon)"
+        },
+        {
+          "type": "select",
+          "id": "icon_choice",
+          "label": "Built-in illustrated icon",
+          "default": "custom",
+          "options": [
+            { "value": "custom", "label": "Custom icon below" },
+            { "value": "curated", "label": "Curated products" },
+            { "value": "handmade", "label": "Handmade" },
+            { "value": "natural", "label": "Natural ingredients" },
+            { "value": "shipping", "label": "Shipping" },
+            { "value": "value", "label": "Value / save money" }
+          ]
         },
         {
           "type": "image_picker",

@@ -1,6 +1,10 @@
 <nav class="nav-bar d-none d-lg-block" role="navigation">
   <ul class="site-nav">
+    {%- assign has_about_link = false -%}
     {%- for link in linklists[settings.main_linklist].links -%}
+    {%- if link.url == '/pages/about-us' or link.title == 'About Us' -%}
+      {%- assign has_about_link = true -%}
+    {%- endif -%}
     {%- assign hasMega = false -%}
     {%- assign titleCheckMega = link.title | escape | split: '[' | first | downcase -%}
     {%- for i in (1..5) -%}
@@ -49,5 +53,12 @@
     </li>
     {%- endif -%}
     {%- endfor -%}
+    {%- unless has_about_link -%}
+    <li class="site-nav__item">
+      <a href="/pages/about-us" class="site-nav__link">
+        <span class="site-nav__title">About Us</span>
+      </a>
+    </li>
+    {%- endunless -%}
   </ul>
 </nav>

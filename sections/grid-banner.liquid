@@ -35,6 +35,13 @@
   .customstyle{{ section.id }}.disable_hover .banner-theme:hover img{
     transform: scale(1.0);
   }
+  {%- if section.settings.premium_style -%}
+  .customstyle{{ section.id }} .row{row-gap:{{ section.settings.banner_gap }}px}
+  .customstyle{{ section.id }} .banner-theme,.customstyle{{ section.id }} .pro-email{overflow:hidden;border-radius:{{ section.settings.radius_banner }}px;box-shadow:0 18px 46px rgba(67,16,12,.14)}
+  .customstyle{{ section.id }} figcaption h2,.customstyle{{ section.id }} figcaption h3{color:#fff!important;font-weight:700;line-height:1.08;text-shadow:0 3px 24px rgba(0,0,0,.4)}
+  .customstyle{{ section.id }} figcaption p{color:#ffe0ba!important}
+  .customstyle{{ section.id }} figcaption .btn{color:#fff!important;border-color:#fff!important}
+  {%- endif -%}
 </style>
 
 <div class="customstyle{{ section.id }} {% if section.settings.enable_hover %} enable_hover {% else %} disable_hover {% endif %}" data-aos="{{section.settings.animation}}" >
@@ -76,6 +83,7 @@
           top:0;
           left: 0;
           object-fit: cover;
+          object-position: {{ block.settings.image_position }};
         }
         {%- endif -%}
         @media only screen and (max-width: 989px){
@@ -126,7 +134,7 @@
         {% if block.settings.e_height %}h_{{block.id}} d-flex h-block-banner flex-column {% endif %}
         ">
           {%- if block.settings.image != blank -%}
-          <img src="{% include 'srcBlank' %}" class="lazyload transition" data-src="{{block.settings.image | img_url:'1920x'}}">
+          <img src="{% include 'srcBlank' %}" class="lazyload transition" data-src="{{block.settings.image | img_url:'1920x'}}" alt="{{ block.settings.description | strip_html | escape }}">
           <a class="banner-overlay" href="{{block.settings.button_link| default:"#"}}"></a>
           {%- else -%}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -156,9 +164,9 @@
       {%- when 'email' -%}
        
         <div class="col-md-{{block.settings.width}}" {{ block.shopify_attributes }} data-aos="{{section.settings.animation}}" data-aos-duration="1000">
-          <div class="form-vertical y-4 px-lg-5 px-4 d-flex align-items-center pro-email lazyload"  
-          style="{% if block.settings.image_email != blank %}background-image:url({%- include 'srcBlank' -%}){% endif %}" 
-          data-bgset="{%- include 'bgset', image: block.settings.image_email -%}" 
+          <div class="form-vertical y-4 px-lg-5 px-4 d-flex align-items-center pro-email lazyload"
+          style="{% if block.settings.image_email != blank %}background-image:url({%- include 'srcBlank' -%}){% endif %}"
+          data-bgset="{%- include 'bgset', image: block.settings.image_email -%}"
           data-sizes="auto"
           data-parent-fit="cover">
           <div>
@@ -201,6 +209,9 @@
             background-size:cover;
             border-radius:4px;
           }
+          .customstyle{{ section.id }} .pro-email{position:relative;background-position:center 44%;overflow:hidden}
+          .customstyle{{ section.id }} .pro-email>div{position:relative;z-index:2;max-width:430px}
+          .customstyle{{ section.id }} .pro-email h4{font-size:27px;font-weight:700;text-shadow:0 2px 18px rgba(0,0,0,.35)}
           .pro-email .svg-mail{
               width: 48px;
               height: 48px;
@@ -447,6 +458,22 @@
       "step": 1,
       "unit": " px",
       "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "premium_style",
+      "label": "Enable premium Baan styling",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "banner_gap",
+      "label": "Space between banners",
+      "max": 40,
+      "min": 0,
+      "step": 2,
+      "unit": " px",
+      "default": 18
     }
     
   ],
@@ -515,6 +542,19 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image focal position",
+          "default": "center center",
+          "options": [
+            { "value": "left center", "label": "Left" },
+            { "value": "center center", "label": "Center" },
+            { "value": "right center", "label": "Right" },
+            { "value": "center top", "label": "Top" },
+            { "value": "center bottom", "label": "Bottom" }
+          ]
         },
       {
         "type": "select",

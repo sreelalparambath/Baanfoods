@@ -1,5 +1,15 @@
 {
   "sections": {
+    "about_premium": {
+      "type": "about-premium",
+      "blocks": {
+        "authentic": {"type":"value","settings":{"title":"Authentic flavour","text":"Recipes with depth, balance, and a genuine connection to Indian food traditions."}},
+        "ingredients": {"type":"value","settings":{"title":"Considered ingredients","text":"Produce and spices chosen to bring natural character and memorable taste to every jar."}},
+        "care": {"type":"value","settings":{"title":"Made with care","text":"Thoughtful preparation, dependable quality, and food we are proud to share with your family."}}
+      },
+      "block_order": ["authentic", "ingredients", "care"],
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -7,6 +17,7 @@
     }
   },
   "order": [
+    "about_premium",
     "main"
   ]
 }

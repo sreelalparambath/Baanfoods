@@ -1,7 +1,8 @@
 <style>
-  .gmap-iframe .gmap_canvas,.gmap-iframe .mapouter,.gmap-iframe iframe{width:100%!important}@media (max-width:767px){.gmap-iframe .gmap_canvas,.gmap-iframe .mapouter,.gmap-iframe iframe{height:350px!important}}.contact-page__info li{border-bottom:1px solid var(--g-border-color);}.contact-page__info li:last-child{border:none}.contact-page__info .icon, .contact-page__info [class^=icon-]{width:17px;margin-right:10px}.rtl .contact-page__info .icon{margin-left:10px;margin-right:0}
+  .gmap-iframe .gmap_canvas,.gmap-iframe .mapouter,.gmap-iframe iframe{width:100%!important}.contact-page-section{background:{{ section.settings.section_background }}}.contact-content{margin:{{ section.settings.spacing_top }}px 0 {{ section.settings.spacing_bottom }}px}.contact-content> .row{align-items:flex-start}.contact-content h1{color:{{ section.settings.heading_color }};font-size:clamp(38px,4vw,58px);font-weight:700}.contact-page__des{max-width:680px;color:{{ section.settings.text_color }};font-size:17px;line-height:1.75}.contact-info-grid{margin-left:-18px;margin-right:-18px}.contact-info-grid>div{padding-left:18px;padding-right:18px}.contact-page__info{height:100%;padding:8px 0 24px!important}.contact-page__info li{padding:6px 0;border:0!important;color:{{ section.settings.text_color }};line-height:1.7}.contact-page__info h6{color:{{ section.settings.heading_color }};font-size:14px;letter-spacing:.04em}.contact-page__info a{color:{{ section.settings.link_color }}!important;font-weight:600}.contact-page__info p{margin-bottom:8px}.contact-form{margin-top:10px;padding:0;background:transparent}.contact-form .form-control,.contact-form .form-control-area{width:100%;border:1px solid {{ section.settings.input_border }};border-radius:{{ section.settings.input_radius }}px!important;background:{{ section.settings.input_background }};transition:border-color .2s ease,box-shadow .2s ease}.contact-form .form-control{height:50px;padding:10px 18px}.contact-form .form-control-area{min-height:130px;padding:16px 18px}.contact-form .form-control:focus,.contact-form .form-control-area:focus{border-color:{{ section.settings.link_color }};box-shadow:0 0 0 3px rgba(229,27,32,.08)}.contact-form .btn{min-width:112px;padding:13px 24px;border-radius:999px;background:{{ section.settings.button_background }};color:{{ section.settings.button_text }};font-weight:700}.contact-form .btn:hover{background:#751610}.gmap-iframe{height:{{ section.settings.map_height }}px;overflow:hidden;border-radius:{{ section.settings.map_radius }}px;background:#f5eee9}.gmap-iframe .mapouter,.gmap-iframe .gmap_canvas,.gmap-iframe iframe{height:{{ section.settings.map_height }}px!important;min-height:0!important}.contact-form-title{margin:4px 0 22px;color:{{ section.settings.heading_color }};font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}@media (max-width:767px){.contact-content{margin:42px 0}.gmap-iframe{height:360px;margin-top:34px}.gmap-iframe .mapouter,.gmap-iframe .gmap_canvas,.gmap-iframe iframe{height:360px!important}.contact-info-grid{margin-left:-15px;margin-right:-15px}.contact-info-grid>div{padding-left:15px;padding-right:15px}}
 </style>
 <!-- page-contact.liquid -->
+<div class="contact-page-section">
 <div class="container">
   <div class="contact-content">
     <div class="row">
@@ -14,10 +15,10 @@
           {%- endif -%}
           {%- if section.settings.right_block -%}
           {%- if section.blocks.size > 0 -%}
-            <div class=" mt-5">
-              <div class="row">
+            <div class="mt-4 mb-3">
+              <div class="row contact-info-grid">
                 {%- for block in section.blocks -%}
-                  <ul class="list-unstyled contact-page__info col-lg-6 col-12 mb-5">
+                  <div class="{% if block.settings.width == 'full' %}col-12{% else %}col-lg-6 col-12{% endif %} mb-3" {{ block.shopify_attributes }}><ul class="list-unstyled contact-page__info">
                     {%- if block.settings.store_addess != blank -%}
                     <li>
                       {{block.settings.store_addess}}
@@ -25,12 +26,12 @@
                     {%- endif -%}
                     {%- if block.settings.contact_addess != blank -%}
                     <li class="">
-                      {{block.settings.contact_addess}}
+                      <a href="https://www.google.com/maps/search/?api=1&query={{ block.settings.contact_addess | url_encode }}" target="_blank" rel="noopener">{{block.settings.contact_addess}}</a>
                     </li>
                     {%- endif -%}
                     {%- if block.settings.contact_phone != blank -%}
                     <li>
-                      <a class="text-body" href="tel:+{{block.settings.contact_phone}}">{{block.settings.contact_phone}}</a>
+                      <a class="text-body" href="tel:{{ block.settings.contact_phone | remove: ' ' }}">{{block.settings.contact_phone}}</a>
                     </li>
                     {%- endif -%}
                     {%- if block.settings.contact_mail != blank -%}
@@ -38,13 +39,14 @@
                       <a class="link-line" href="mailto:{{block.settings.contact_mail}}">{{block.settings.contact_mail}}</a>
                     </li>
                     {%- endif -%}
-                  </ul>
+                  </ul></div>
                 {%- endfor -%}
               </div>
             </div>
         {%- endif -%}
         {%- endif -%}
         <div class="contact-form form-vertical pb-5">
+          {%- if section.settings.form_title != blank -%}<h2 class="contact-form-title">{{ section.settings.form_title }}</h2>{%- endif -%}
           {%- form 'contact' -%}
           {%- if form.posted_successfully? -%}
           <p class="form-success">
@@ -86,6 +88,7 @@
     </div>
   </div>
 </div>
+</div>
 {% schema %}
   {
     "name": "Contact us",
@@ -103,6 +106,56 @@
       "default": "Have a question? Give us a call or fill out the contact form. We’d love to hear from you"
     },
     {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form heading",
+      "default": "Send us a message"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#751610"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4F413D"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#E51B20"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Top spacing",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Bottom spacing",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
       "type": "checkbox",
       "id": "gmap",
       "label": "Google map",
@@ -113,6 +166,60 @@
       "id": "gmap_iframe",
       "label": "Iframe code",
       "info": "💡 [Get iframe code here](https:\/\/www.embedgooglemap.net\/)"
+    },
+    {
+      "type": "range",
+      "id": "map_height",
+      "label": "Map height",
+      "min": 300,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "map_radius",
+      "label": "Map corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "input_border",
+      "label": "Input border",
+      "default": "#DED7D3"
+    },
+    {
+      "type": "range",
+      "id": "input_radius",
+      "label": "Input corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#E51B20"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "#FFFFFF"
     },
     {
       "type": "checkbox",
@@ -148,6 +255,16 @@
           "id": "contact_mail",
           "label": "Email",
           "default": "sale@yourcompany.com"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Block width",
+          "default": "half",
+          "options": [
+            { "value": "half", "label": "Half width" },
+            { "value": "full", "label": "Full width" }
+          ]
         }
       ]
     }

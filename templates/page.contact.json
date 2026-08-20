@@ -6,28 +6,31 @@
         "be39a7a2-bb88-484a-a557-711abda96158": {
           "type": "address",
           "settings": {
-            "store_addess": "<h6 class=\"mb-3\">OUR STORE<\/h6>",
-            "contact_addess": "123 Sky Tower, West 21th Street, Suite 721, NY",
+            "store_addess": "<h6 class=\"mb-3\">OUR STORE</h6>",
+            "contact_addess": "Thekkumthala Parambil, Kuthukallu, Mukhadar, Kozhikode, Kerala 673003",
             "contact_phone": "",
-            "contact_mail": ""
+            "contact_mail": "",
+            "width": "half"
           }
         },
         "680cb5ab-4308-4d94-9a31-4af2c07ed950": {
           "type": "address",
           "settings": {
-            "store_addess": "<h6 class=\"mb-3\">OUR BUSINESS HOURS<\/h6>\n<p>\nMonday – Friday:<br>\n8am – 4pm<\/p>\n<p>\nSaturday, Sunday:<br>\n9am – 5pm<\/p>",
+            "store_addess": "<h6 class=\"mb-3\">OUR BUSINESS HOURS</h6><p>Monday – Saturday:<br>9:00 am – 6:00 pm</p><p>Sunday:<br>By appointment</p>",
             "contact_addess": "",
             "contact_phone": "",
-            "contact_mail": ""
+            "contact_mail": "",
+            "width": "half"
           }
         },
         "f1504265-da37-4ee8-8d43-0bc52902d78e": {
           "type": "address",
           "settings": {
-            "store_addess": "<h6 class=\"mb-3\">CONTACT INFORMATION<\/h6>",
+            "store_addess": "<h6 class=\"mb-3\">CONTACT INFORMATION</h6>",
             "contact_addess": "",
-            "contact_phone": "+844 123 456 789",
-            "contact_mail": "sale@yourcompany.com"
+            "contact_phone": "+91 98958 71190",
+            "contact_mail": "info@baanfoods.com",
+            "width": "full"
           }
         }
       },
@@ -37,11 +40,25 @@
         "f1504265-da37-4ee8-8d43-0bc52902d78e"
       ],
       "settings": {
-        "title_page": "Stay in touch! Contact us",
-        "contact_des": "Have a question? Give us a call or fill out the contact form. We’d love to hear from you",
+        "title_page": "",
+        "contact_des": "",
         "gmap": true,
-        "gmap_iframe": "<div class=\"mapouter\">\n<div class=\"gmap_canvas\">\n<iframe width=\"1080\" height=\"500\" id=\"gmap_canvas\" src=\"https:\/\/maps.google.com\/maps?q=68%20nguyen%20co%20thach&t=&z=15&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"><\/iframe>Google Maps Generator by <a href=\"https:\/\/www.embedgooglemap.net\">embedgooglemap.net<\/a>\n<\/div>\n<style>.mapouter{position:relative;text-align:right;height:500px;width:1080px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:1080px;}.gmap-iframe .mapouter, .gmap-iframe .gmap_canvas, .gmap-iframe iframe{ width:100% !important; } @media (max-width:767px){ .gmap-iframe .mapouter, .gmap-iframe .gmap_canvas, .gmap-iframe iframe{ height:350px !important; } }<\/style>\n<\/div>",
-        "right_block": true
+        "gmap_iframe": "<div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe title=\"Baan Foods location in Kozhikode\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.354021698299!2d75.7761047764435!3d11.235346588942758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65963da7f2053%3A0x57185a40d52866e!2sBaan%20Foods!5e0!3m2!1sen!2sin!4v1787208389772!5m2!1sen!2sin\" width=\"100%\" height=\"560\" style=\"border:0\" allowfullscreen loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe></div></div>",
+        "right_block": true,
+        "form_title": "SEND US A MESSAGE",
+        "section_background": "#FFFFFF",
+        "heading_color": "#751610",
+        "text_color": "#4F413D",
+        "link_color": "#E51B20",
+        "spacing_top": 55,
+        "spacing_bottom": 70,
+        "map_height": 420,
+        "map_radius": 0,
+        "input_background": "#FFFFFF",
+        "input_border": "#DED7D3",
+        "input_radius": 24,
+        "button_background": "#E51B20",
+        "button_text": "#FFFFFF"
       }
     }
   },

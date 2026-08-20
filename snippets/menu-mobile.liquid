@@ -8,7 +8,11 @@
       </button>
     </form>
     <ul class="drawer__nav">
+      {%- assign has_about_link = false -%}
       {%- for link in linklists[settings.main_linklist].links -%}
+      {%- if link.url == '/pages/about-us' or link.title == 'About Us' -%}
+        {%- assign has_about_link = true -%}
+      {%- endif -%}
       {%- assign child_list_handle = link.title | handleize -%}
       {%- if link.links != blank -%}
       <li class="drawer__nav-item">
@@ -48,6 +52,14 @@
       </li>
       {%- endif -%}
       {%- endfor -%}
+
+      {%- unless has_about_link -%}
+      <li class="drawer__nav-item">
+        <a href="/pages/about-us" class="drawer__nav-link drawer__nav-link--top-level">
+          About Us
+        </a>
+      </li>
+      {%- endunless -%}
 
       <li class="drawer-nav__spacer mt-2"></li>
       {%- if shop.customer_accounts_optional or shop.customer_accounts_enabled -%}

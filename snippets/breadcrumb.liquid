@@ -14,15 +14,17 @@
   }
   .g-breadcrumb .container,.g-breadcrumb .container-fluid{z-index: 2;position: relative;}
   .g-breadcrumb.breadcrumbs-style_2{
-    padding:80px 0;
-    background-position: center;
+    min-height:270px;
+    padding:72px 0;
+    background-position:center 54%;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     border-radius: 0;
   }
   .template-product  .g-breadcrumb.breadcrumbs-style_2{
-    padding: 22px 0;
+    min-height:210px;
+    padding:52px 0;
   }
   @media (max-width:576px) {
     .g-breadcrumb.breadcrumbs-style_2{
@@ -33,7 +35,7 @@
     }
   }
   .g-breadcrumb.breadcrumbs-style_2::before{
-    background:rgba(0,0,0,{{settings.limit_ranger}});
+    background:linear-gradient(90deg,rgba(30,4,3,.90) 0%,rgba(46,7,4,.72) 34%,rgba(46,7,4,.22) 67%,rgba(46,7,4,.06) 100%);
     position: absolute;
     z-index: 1;
     content:"";
@@ -49,6 +51,11 @@
     width: 23px;
     height: 23px;
   }
+  .g-breadcrumb.breadcrumbs-style_2{display:flex;justify-content:center;box-shadow:inset 0 -1px rgba(117,22,16,.15)}
+  .g-breadcrumb.breadcrumbs-style_2 .br-title{max-width:620px;color:#fff;font-size:clamp(36px,4vw,58px);font-weight:700;line-height:1.08;text-shadow:0 3px 22px rgba(0,0,0,.42)}
+  .g-breadcrumb.breadcrumbs-style_2 a,.g-breadcrumb.breadcrumbs-style_2 span{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.42)}
+  .g-breadcrumb.breadcrumbs-style_2 a{opacity:.78}
+  @media(max-width:576px){.g-breadcrumb.breadcrumbs-style_2{min-height:190px;padding:42px 0;background-position:58% center}.g-breadcrumb.breadcrumbs-style_2::before{background:linear-gradient(90deg,rgba(30,4,3,.92),rgba(46,7,4,.52))}}
 
 </style>
 {%- assign page_handle = page.handle-%}
@@ -80,14 +87,14 @@
     {% assign bgimage = settings.img_breadcrumb %}
   {%- endif -%}
 {% endif %}
-<nav class="{{checktagsother}} breadcrumbs-{{settings.style_breadcrumb}} breadcrumb g-breadcrumb lazyload text-{{settings.align_bread}}" role="navigation" aria-label="breadcrumbs" {% unless settings.style_breadcrumb == "style_1" %}data-bgset="{%- include 'bgset', image: bgimage -%}"  data-sizes="auto"
-data-parent-fit="cover" {% endunless%}>
+<nav class="{{checktagsother}} breadcrumbs-{{settings.style_breadcrumb}} breadcrumb g-breadcrumb text-{{settings.align_bread}}" role="navigation" aria-label="breadcrumbs"
+{% unless settings.style_breadcrumb == "style_1" %}style="background-image:url({{ 'baan-breadcrumb-premium-v1.png' | asset_url }})"{% endunless %}>
   <div class="{{settings.layout_bread}}">
   {% if settings.show_title_breadcumbs %}
     {% if template contains 'collection' and collection.handle %}
     <h3 class="mb-2 h2 br-title">{{ collection.title }}</h3>
     {% elsif template contains 'page' %}
-    <h3 class="mb-2 h2 br-title">{{ page.title }}</h3>
+    <h3 class="mb-2 h2 br-title">{% case template.suffix %}{% when 'shipping-policy' %}Shipping Policy{% when 'refund-policy' %}Refund Policy{% when 'terms-and-conditions' %}Terms and Conditions{% else %}{{ page.title }}{% endcase %}</h3>
     {% elsif template contains 'product' and collection.handle %}	
       <h3 class="mb-2 h2 br-title">{{ page.title }}</h3>
     {% elsif template contains 'blog' %}	
@@ -99,7 +106,7 @@ data-parent-fit="cover" {% endunless%}>
     <a href="/" title="{{ 'general.breadcrumb.home' | t }}">{{ 'general.breadcrumb.home' | t }}</a>
     {% if template contains 'page' %}
     <span aria-hidden="true">/</span>
-    <span>{{ page.title }}</span>
+    <span>{% case template.suffix %}{% when 'shipping-policy' %}Shipping Policy{% when 'refund-policy' %}Refund Policy{% when 'terms-and-conditions' %}Terms and Conditions{% else %}{{ page.title }}{% endcase %}</span>
     {% elsif template contains 'product' %}
     {% if collection.url %}
     <span aria-hidden="true">/</span>

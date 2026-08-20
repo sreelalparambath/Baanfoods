@@ -24,11 +24,12 @@
            data-section-type="slickCarousels"
            {% endif %}>
         {%- for block in section.blocks -%}
+        {%- assign category_url = block.settings.collection.url | default: '#' -%}
         <div class="{% if carousel %}  col {% else %} col-12 col-lg {% endif %} p-lg-0 category-item carousel__slide-wrapper--{{block.id}}" {{ block.shopify_attributes }}>
           
           <div class="category-item-image {% if block.settings.image != blank %} lazyload {% endif %} " 
           style="{% if block.settings.image != blank %}background-image:url({%- include 'srcBlank' -%}){% endif %}"
-          data-bg="{{ block.settings.image | img_url:"1920x" }}" >
+          {% if block.settings.image != blank %}data-bgset="{%- include 'bgset', image: block.settings.image -%}" data-sizes="auto"{% endif %}>
           {%- if block.settings.image == blank -%}
           <div class="placeholder-background">
             {%- capture current -%}{%- cycle 1, 2 -%}{%- endcapture -%}
@@ -37,9 +38,10 @@
           {%- endif -%}
             {% if block.settings.title !=blank %}
             <h4 class="text-capitalize my-3 h6" style="color:{{section.settings.title_cl}}">
-                {{block.settings.title | default:"Title"}}
+              <a href="{{ category_url }}" style="color:inherit">{{ block.settings.title | default: block.settings.collection.title }}</a>
             </h4>
             {% endif %}
+            {% if block.settings.description != blank %}<p class="baan-category-description">{{ block.settings.description }}</p>{% endif %}
             
             {% if block.settings.linklist !=blank %}
             <ul class="category-item-list list--no-bullets">
@@ -54,7 +56,7 @@
             {%- else -%}
             <ul class="category-item-list list--no-bullets">
               <li>
-                <a href="#"  style="color:{{section.settings.list_cl}}">link menu</a>
+                <a href="{{ category_url }}" style="color:{{section.settings.list_cl}}">{{ block.settings.button_label }}</a>
               </li>
             </ul>
             {% endif %}
@@ -88,6 +90,23 @@
   .category-item-list li{position:relative;padding: 4px 0 4px 20px;}
   .category-item-list li:before{content:"\e904";position:absolute;left:0;top:8px;font-family: icomoon!important;color: var(--g-main);font-size: 10px;}
   .category-item-list a:hover{color:var(--color-accent-hover) !important; }
+
+  .customstyle{{ section.id }} .section-inner{border-radius:22px;overflow:hidden;box-shadow:0 22px 60px rgba(67,16,12,.10)}
+  .customstyle{{ section.id }} .section-title{color:#751610!important}
+  .customstyle{{ section.id }} .category-slider{display:grid!important;grid-template-columns:repeat({{ section.settings.desktop_columns }},minmax(0,1fr));gap:{{ section.settings.card_gap }}px;margin:0!important;padding:0 30px 34px}
+  .customstyle{{ section.id }} .category-item{width:auto!important;max-width:none!important;padding:0!important;border:0!important}
+  .customstyle{{ section.id }} .category-item-image{position:relative;display:flex;min-height:{{ section.settings.card_height }}px;overflow:hidden;border-radius:{{ section.settings.card_radius }}px;padding:0 30px 30px;background-position:{{ section.settings.image_position }}!important;background-size:cover!important;flex-direction:column;justify-content:flex-end;isolation:isolate;box-shadow:0 14px 32px rgba(53,11,8,.18)}
+  .customstyle{{ section.id }} .category-item-image:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(43,5,3,.02) 28%,rgba(45,7,4,.9) 100%)}
+  .customstyle{{ section.id }} .category-item-image:after{content:"Authentic Baan Foods";position:absolute;top:24px;left:26px;padding:8px 13px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(77,12,8,.38);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+  .customstyle{{ section.id }} .category-item-image h4{position:relative;margin:0 0 10px!important;font-size:clamp(25px,2vw,34px)!important;line-height:1.1}
+  .customstyle{{ section.id }} .category-item-image h4 a{color:#fff!important;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+  .customstyle{{ section.id }} .baan-category-description{position:relative;max-width:95%;margin:0 0 16px;color:rgba(255,255,255,.82);font-size:11px;line-height:1.55}
+  .customstyle{{ section.id }} .category-item-list{position:relative;margin:0}
+  .customstyle{{ section.id }} .category-item-list li{padding:0}
+  .customstyle{{ section.id }} .category-item-list li:before{display:none}
+  .customstyle{{ section.id }} .category-item-list a{display:inline-flex;align-items:center;padding:10px 17px;border:1px solid rgba(255,255,255,.6);border-radius:999px;color:#fff!important;font-size:12px;font-weight:700;transition:.25s ease}
+  .customstyle{{ section.id }} .category-item-list a:hover{background:#fff;color:#751610!important}
+  @media(max-width:991px){.customstyle{{ section.id }} .category-slider{grid-template-columns:1fr;padding:0 18px 24px}.customstyle{{ section.id }} .category-item-image{min-height:390px}}
 </style>
 
 {% schema %}
@@ -301,6 +320,56 @@
       "default": "#18191c"
     },
     {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "card_height",
+      "label": "Card height",
+      "min": 250,
+      "max": 650,
+      "step": 10,
+      "unit": "px",
+      "default": 430
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Space between cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
       "type": "color",
       "id": "list_cl",
       "label": "List",
@@ -322,6 +391,22 @@
           "id": "title",
           "label": "Title",
           "default":"Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Explore collection"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
         },
         {
           "type": "link_list",

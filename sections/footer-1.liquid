@@ -62,6 +62,14 @@
     margin-bottom: 48px;
     width: 200px;
   }
+  .site-footer .section-footer-email{padding:28px;border:1px solid rgba(117,22,16,.10);border-radius:18px;background:linear-gradient(145deg,#fffaf2,#fff3e3);box-shadow:0 14px 34px rgba(67,16,12,.08)}
+  .site-footer .section-footer-email .site-footer__section-title{margin-bottom:14px;color:#751610;font-size:14px}
+  .site-footer .section-footer-email .site-footer__newsletter-label{color:#66534d;line-height:1.65}
+  .site-footer .section-footer-email .input-group{display:flex;flex-wrap:nowrap;width:100%;overflow:hidden;border:1px solid #E51B20;border-radius:999px;background:#fff;box-shadow:0 7px 18px rgba(67,16,12,.09)}
+  .site-footer .section-footer-email .form-control{display:block;flex:1 1 auto;min-width:0;width:1%;height:48px;padding:8px 12px 8px 20px;border:0!important;border-radius:999px 0 0 999px!important;background:#fff!important;box-shadow:none!important}
+  .site-footer .section-footer-email .input-group-append{display:flex;flex:0 0 auto;margin:0}
+  .site-footer .section-footer-email .btn{display:flex;align-items:center;justify-content:center;flex:0 0 54px;width:54px;height:48px;padding:0!important;border:0;border-radius:0 999px 999px 0!important;background:#E51B20;color:#fff}
+  .site-footer .section-footer-email .btn:hover{background:#751610}
   #footer-payment-methods li svg{ 
     height: auto;
     width: 42px; 
@@ -88,6 +96,21 @@
   .col-last .site-footer__section{
     margin-bottom: 0 !important;
   }
+  .site-footer .top-footer{background:{{ section.settings.top_background }};padding:34px 0!important}
+  .site-footer .top-footer .row{gap:24px}
+  .site-footer .top-footer .media{align-items:center}
+  .site-footer .top-footer i{display:flex;width:48px;height:48px;align-items:center;justify-content:center;border:1px solid rgba(229,27,32,.22);border-radius:14px;background:#fff7ed;color:var(--footer-top-color-m)!important}
+  .site-footer .top-footer .small{color:#751610;font-size:11px;letter-spacing:.08em}
+  .site-footer .top-footer a{font-weight:600}
+  .site-footer .footer-inner{background:{{ section.settings.main_background }};border-radius:{{ section.settings.footer_radius }}px {{ section.settings.footer_radius }}px 0 0}
+  .site-footer .footer-inner>.row{row-gap:42px}
+  .site-footer__section-title{position:relative;padding-bottom:14px}
+  .site-footer__section-title:after{content:"";position:absolute;bottom:0;left:0;width:34px;height:2px;border-radius:2px;background:#E51B20}
+  .site-footer__list-item a{display:inline-block;transition:transform .2s ease,color .2s ease}
+  .site-footer__list-item a:hover{transform:translateX(4px)}
+  .site-footer__section .logofooter{margin-bottom:22px}
+  .site-footer__section .img-logo{margin-bottom:0}
+  @media(max-width:749px){.site-footer .top-footer{padding:28px 0!important}.site-footer .footer-inner{border-radius:0}.site-footer>.footer-inner{padding-top:42px}.site-footer__section .logofooter{margin-bottom:18px}}
 </style>
 
 <footer class="site-footer {% if section.settings.image_bg != blank %} lazyload {% endif %}" role="contentinfo" 
@@ -214,6 +237,20 @@ style="{% if section.settings.image_bg != blank %}background-image:url({%- inclu
         </div>
         {%- endif -%}
 
+        {%- when 'links' -%}
+        <div class="site-footer__section mb-lg-0 mb-5">
+          {%- if block.settings.title != blank -%}<h4 class="h5 site-footer__section-title">{{ block.settings.title }}</h4>{%- endif -%}
+          <ul class="site-footer__list">
+            {%- for i in (1..5) -%}
+              {%- capture label_key -%}label_{{ i }}{%- endcapture -%}
+              {%- capture url_key -%}url_{{ i }}{%- endcapture -%}
+              {%- if block.settings[label_key] != blank -%}
+                <li class="site-footer__list-item"><a href="{{ block.settings[url_key] | default: '#' }}">{{ block.settings[label_key] }}</a></li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
         {%- when 'text' -%}
         <div class="site-footer__section mb-lg-0 mb-5">
           {%- if block.settings.title != blank -%}
@@ -331,6 +368,28 @@ style="{% if section.settings.image_bg != blank %}background-image:url({%- inclu
     "type": "image_picker",
     "id": "image_bg",
     "label": "Background image"
+  },
+  {
+    "type": "color",
+    "id": "top_background",
+    "label": "Contact bar background",
+    "default": "#fffaf5"
+  },
+  {
+    "type": "color",
+    "id": "main_background",
+    "label": "Main footer background",
+    "default": "#ffffff"
+  },
+  {
+    "type": "range",
+    "id": "footer_radius",
+    "label": "Main footer corner radius",
+    "min": 0,
+    "max": 40,
+    "step": 2,
+    "unit": "px",
+    "default": 0
   },
   
   {
@@ -629,6 +688,38 @@ style="{% if section.settings.image_bg != blank %}background-image:url({%- inclu
               "value": "100%",
               "label": "100%"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "Custom links",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Heading", "default": "Information" },
+        { "type": "text", "id": "label_1", "label": "Link 1 label" },
+        { "type": "url", "id": "url_1", "label": "Link 1" },
+        { "type": "text", "id": "label_2", "label": "Link 2 label" },
+        { "type": "url", "id": "url_2", "label": "Link 2" },
+        { "type": "text", "id": "label_3", "label": "Link 3 label" },
+        { "type": "url", "id": "url_3", "label": "Link 3" },
+        { "type": "text", "id": "label_4", "label": "Link 4 label" },
+        { "type": "url", "id": "url_4", "label": "Link 4" },
+        { "type": "text", "id": "label_5", "label": "Link 5 label" },
+        { "type": "url", "id": "url_5", "label": "Link 5" },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "16%",
+          "options": [
+            { "value": "16%", "label": "16%" },
+            { "value": "25%", "label": "25%" },
+            { "value": "33%", "label": "33%" },
+            { "value": "50%", "label": "50%" },
+            { "value": "66%", "label": "66%" },
+            { "value": "75%", "label": "75%" },
+            { "value": "100%", "label": "100%" }
           ]
         }
       ]
