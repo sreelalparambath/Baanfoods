@@ -3582,7 +3582,7 @@
               "pos_r": 8,
               "pos_t": 5,
               "pos_b": 8,
-              "image": "shopify://shop_images/WhatsApp_Image_2026-08-13_at_19.31.03.jpg",
+              "image": "shopify://shop_images/exec-252d639a-1244-43f9-bc59-1d1144d52fa6.png",
               "image_position": "center center",
               "width": "8",
               "description": "<p class=\"mb-2\">AUTHENTIC KERALA FLAVOUR</p><h3 class=\"mb-1\">A little tradition<br>in every jar.</h3>",
@@ -3606,7 +3606,7 @@
               "color_title": "#ffffff",
               "des_promomail": "Recipes, new flavours and thoughtful offers — delivered occasionally.",
               "color_des": "#ffffff",
-              "image_email": "shopify://shop_images/magnific_change-size-yo-169_TddASsSVNR_ec9756c9-0a6c-4a5a-ad5b-7555e7ed4d9a.png"
+              "image_email": "shopify://shop_images/exec-a9f69a08-e91f-4e59-aa4f-124f1c2cdd7f.png"
             }
           }
         },
@@ -3616,7 +3616,7 @@
         ],
         "settings": {
           "animation": "fade-up",
-          "paddingsection": "30px 0px 0px 0px",
+          "paddingsection": "30px 0px 30px 0px",
           "paddingmobile": "0px 0px 0px 0px",
           "marginsection": "0px 0px 30px 0px",
           "marginmobile": "0px 0px 10px 0px",
