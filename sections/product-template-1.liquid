@@ -337,7 +337,7 @@
                 {% if settings.enable_wishlsit %}
                 <span data-tooltip="true" class="js-btn-wishlist mr-4" title="{{ 'products.product.wishlist_text' | t }}" data-handle="{{product.handle}}">
                   {%- include 'icon-heart' -%}
-                  < class="wishlist-text">{{ 'products.product.wishlist_text' | t }}</<span>
+                  <span class="wishlist-text">{{ 'products.product.wishlist_text' | t }}</span>
                 </span>
                 {% endif %}
               </div>
@@ -396,6 +396,7 @@
       </div>
     </div>
   </div>
+  {% render 'baan-brochure-content', context: 'product' %}
   {% if section.settings.positiontab == "bottom" %}
     <div class="container px-0">
         <div class="row justify-content-md-center">

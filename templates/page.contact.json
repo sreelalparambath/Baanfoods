@@ -7,7 +7,7 @@
           "type": "address",
           "settings": {
             "store_addess": "<h6 class=\"mb-3\">OUR STORE</h6>",
-            "contact_addess": "Thekkumthala Parambil, Kuthukallu, Mukhadar, Kozhikode, Kerala 673003",
+            "contact_addess": "57/497, Thekkumthala Paramb, Kuthukall, Mugadhar, Kerala 673003",
             "contact_phone": "",
             "contact_mail": "",
             "width": "half"
@@ -28,8 +28,18 @@
           "settings": {
             "store_addess": "<h6 class=\"mb-3\">CONTACT INFORMATION</h6>",
             "contact_addess": "",
-            "contact_phone": "+91 98958 71190",
+            "contact_phone": "+91 9895 871 190",
             "contact_mail": "info@baanfoods.com",
+            "width": "full"
+          }
+        },
+        "baan-secondary-phone": {
+          "type": "address",
+          "settings": {
+            "store_addess": "<h6 class=\"mb-3\">ALTERNATE PHONE</h6>",
+            "contact_addess": "",
+            "contact_phone": "+91 9995 223 298",
+            "contact_mail": "",
             "width": "full"
           }
         }
@@ -37,11 +47,12 @@
       "block_order": [
         "be39a7a2-bb88-484a-a557-711abda96158",
         "680cb5ab-4308-4d94-9a31-4af2c07ed950",
-        "f1504265-da37-4ee8-8d43-0bc52902d78e"
+        "f1504265-da37-4ee8-8d43-0bc52902d78e",
+        "baan-secondary-phone"
       ],
       "settings": {
-        "title_page": "",
-        "contact_des": "",
+        "title_page": "Contact Baan Foods",
+        "contact_des": "Questions about our authentic Kozhikoden pickles or Kerala peanut chikki? Our team will be happy to help with products, orders and enquiries.",
         "gmap": true,
         "gmap_iframe": "<div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe title=\"Baan Foods location in Kozhikode\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.354021698299!2d75.7761047764435!3d11.235346588942758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65963da7f2053%3A0x57185a40d52866e!2sBaan%20Foods!5e0!3m2!1sen!2sin!4v1787208389772!5m2!1sen!2sin\" width=\"100%\" height=\"560\" style=\"border:0\" allowfullscreen loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe></div></div>",
         "right_block": true,

@@ -620,7 +620,7 @@
             "settings": {
               "widthlogofooter": 150,
               "title": "BAAN FOODS",
-              "text": "<p class=\"pr-lg-5 mb-3\">Thekkumthala Parambil, Kuthukallu, Mukhadar,<br>Kozhikode, Kerala 673003</p><p><a href=\"tel:+919895871190\">+91 98958 71190</a><br><a href=\"mailto:info@baanfoods.com\">info@baanfoods.com</a></p>",
+              "text": "<p class=\"pr-lg-5 mb-3\">57/497, Thekkumthala Paramb, Kuthukall,<br>Mugadhar, Kerala 673003</p><p><a href=\"tel:+919895871190\">+91 9895 871 190</a><br><a href=\"tel:+919995223298\">+91 9995 223 298</a><br><a href=\"mailto:info@baanfoods.com\">info@baanfoods.com</a></p>",
               "width": "25%"
             }
           },
@@ -647,10 +647,10 @@
               "title": "PRODUCT FAMILIES",
               "label_1": "Pickles",
               "url_1": "/collections/all-pickles",
-              "label_2": "Freeze-Dried Produce",
-              "url_2": "/collections/freeze-dried-fruits-vegetables",
-              "label_3": "Traditional Kerala Snacks",
-              "url_3": "/collections/traditional-kerala-snacks",
+              "label_2": "Peanut Chikki & Bars",
+              "url_2": "/collections/all",
+              "label_3": "Our Product Range",
+              "url_3": "/collections/all",
               "label_4": "Shop All",
               "url_4": "/collections/all",
               "label_5": "",
@@ -686,7 +686,7 @@
           "enable_footertop": true,
           "block_phone": true,
           "phone_txt": "CALL US 24/7",
-          "phone_number": "+91 98958 71190",
+          "phone_number": "+91 9895 871 190",
           "block_email": true,
           "email_txt": "EMAIL US",
           "email": "info@baanfoods.com",
@@ -3660,10 +3660,10 @@
             "type": "category",
             "settings": {
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM.jpg",
-              "title": "Freeze-Dried Fruits & Vegetables",
-              "description": "Colourful vegetables and fruits, made light and crisp",
-              "button_label": "Explore freeze-dried",
-              "collection": "freeze-dried-fruits-vegetables",
+              "title": "Peanut Chikki & Bars",
+              "description": "Roasted peanuts, jaggery and fruit-inspired varieties with a satisfying Kerala crunch",
+              "button_label": "Explore all products",
+              "collection": "all",
               "linklist": ""
             }
           },
@@ -3671,10 +3671,10 @@
             "type": "category",
             "settings": {
               "image": "shopify://shop_images/WhatsAppImage2026-07-29at11.18.34AM_1.jpg",
-              "title": "Traditional Kerala Snacks",
-              "description": "Crispy sweet rice flakes · Crispy sweet rice flakes with nuts",
-              "button_label": "Explore Kerala snacks",
-              "collection": "traditional-kerala-snacks",
+              "title": "From Kerala, Made with Care",
+              "description": "Premium ingredients, authentic recipes and thoughtful packaging inspired by Kerala's culinary heritage",
+              "button_label": "Discover Baan Foods",
+              "collection": "all",
               "linklist": ""
             }
           }
@@ -3700,7 +3700,7 @@
           "dot_heading0": "#b77be1",
           "title_top": "Discover Baan Foods",
           "title": "Shop Our Product Families",
-          "des": "From bold pickles to light freeze-dried produce and nostalgic Kerala snacks.",
+          "des": "From authentic Kozhikoden pickles to traditional peanut chikki and bars.",
           "enable_carousel": false,
           "arrows": true,
           "draggable": true,

@@ -1,0 +1,64 @@
+{% comment %}
+  Shared brochure content. Pass context: 'about', 'collection', or 'product'.
+{% endcomment %}
+{% assign brochure_context = context | default: 'about' %}
+
+<style>
+  .baan-brochure{color:#4f413d}.baan-brochure__eyebrow{margin:0 0 10px;color:#e51b20;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.baan-brochure h2,.baan-brochure h3{color:#751610}.baan-brochure__lead{font-size:18px;line-height:1.75}.baan-brochure__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.baan-brochure__card{padding:28px;border:1px solid #eee3dc;border-radius:16px;background:#fffaf6}.baan-brochure__card p:last-child{margin-bottom:0}.baan-brochure__list{columns:2;column-gap:36px;margin:0;padding-left:20px}.baan-brochure__list li{break-inside:avoid;margin-bottom:8px}.baan-brochure__note{padding:16px 20px;border-left:4px solid #e51b20;background:#fff7ed}.baan-brochure--collection{margin:10px 0 34px}.baan-brochure--product{margin:34px 0}.baan-brochure--product .baan-brochure__card{padding:22px}@media(max-width:767px){.baan-brochure__grid{grid-template-columns:1fr}.baan-brochure__list{columns:1}.baan-brochure__card{padding:22px}}
+</style>
+
+{% if brochure_context == 'about' %}
+  <div class="baan-brochure baan-brochure--about rte">
+    <p class="baan-brochure__eyebrow">Elegant · Authentic · Natural</p>
+    <p class="baan-brochure__lead">Taste the tradition. Relish the crunch. Love the flavour.</p>
+    <h2>About Baan Foods</h2>
+    <p>Baan began its journey in 2025, rooted in Calicut and the Middle East, with a vision to build a trusted name in the food industry. What started as a passionate venture has evolved into a dynamic brand committed to delivering authentic, high-quality and innovative food products that celebrate rich ethnic and culinary traditions.</p>
+    <p>At the heart of our range are premium pickles, crafted with carefully selected ingredients, traditional recipes and a thoughtful balance of flavour and quality. Our peanut chikki products bring together nuts and jaggery in a satisfying blend of taste, crunch and nutrition.</p>
+    <div class="baan-brochure__grid my-5">
+      <div class="baan-brochure__card">
+        <h3>Our Vision</h3>
+        <p>To bring the world a premium range of food products and supplements that anticipates and fulfils evolving tastes and nutritional needs, while making a meaningful difference in every community we serve through quality, authenticity and responsibility.</p>
+      </div>
+      <div class="baan-brochure__card">
+        <h3>Our Mission</h3>
+        <p>To deliver the highest standards of quality, freshness and consistency through sustainable, eco-friendly practices, supported by prompt, professional and courteous service and transparency, trust and integrity in every aspect of our business.</p>
+      </div>
+    </div>
+    <h2>From Innate Wellness Company</h2>
+    <p>Baan, a proud venture of Innate Wellness Company, was born from a passion for sharing the true essence of Kerala's culinary heritage with the world. Every product uses premium-quality ingredients and authentic recipes cherished for generations, with careful attention to quality and hygiene from sourcing through preparation.</p>
+    <p>Our premium packaging is designed to retain freshness and natural goodness while reflecting Kerala's rich culture. Through a growing range of traditional foods, Baan aims to carry the authentic taste of Kerala beyond borders and introduce more people to the unmatched flavours of God's Own Country.</p>
+    <p><a class="btn btn-theme" href="{{ routes.all_products_collection_url }}">Explore our products</a></p>
+  </div>
+{% elsif brochure_context == 'collection' %}
+  {% assign collection_key = collection.handle | append: ' ' | append: collection.title | downcase %}
+  <div class="baan-brochure baan-brochure--collection">
+    {% if collection_key contains 'chikki' or collection_key contains 'peanut' or collection_key contains 'bar' %}
+      <p class="baan-brochure__eyebrow">Authentic Kerala peanut chikki</p>
+      <h2>A crunch of tradition</h2>
+      <p class="baan-brochure__lead">Premium roasted peanuts and jaggery come together in a timeless Kerala sweet, handcrafted with care and inspired by traditional recipes.</p>
+      <p class="baan-brochure__note">Explore classic and fruit-inspired varieties, including coconut, flax seed, chia seed, pomegranate, pineapple, passion fruit, strawberry, Kerala banana, mango, jamun, guava, tamarind and papaya.</p>
+    {% else %}
+      <p class="baan-brochure__eyebrow">Authentic Kozhikoden pickles</p>
+      <h2>Zesty, bold and bursting with tradition</h2>
+      <p class="baan-brochure__lead">Carefully selected ingredients and traditional recipes create rich, balanced flavours—from tangy lemon and mango to sweet-spiced dates and distinctive seafood favourites.</p>
+      <p class="baan-brochure__note">Discover a generous variety of bold, tangy and sweet-spiced flavours, thoughtfully prepared to bring the taste of Kerala to every meal.</p>
+    {% endif %}
+  </div>
+{% elsif brochure_context == 'product' %}
+  {% assign product_key = product.title | append: ' ' | append: product.type | downcase %}
+  <div class="baan-brochure baan-brochure--product">
+    <div class="baan-brochure__card">
+      {% if product_key contains 'chikki' or product_key contains 'peanut' or product_key contains 'bar' %}
+        <p class="baan-brochure__eyebrow">Peanut chikki collection</p>
+        <h3>A wholesome crunch of Kerala tradition</h3>
+        <p>Inspired by Kerala's traditional recipes and made with roasted peanuts and jaggery for a satisfying balance of crunch and natural sweetness.</p>
+        <p>Thoughtfully prepared for an irresistible combination of traditional flavour, natural sweetness and satisfying crunch.</p>
+      {% else %}
+        <p class="baan-brochure__eyebrow">Kozhikoden pickle collection</p>
+        <h3>Rich flavour, authentic recipe</h3>
+        <p>Part of Baan's premium pickle range, prepared with carefully selected ingredients and a traditional balance of spice, tang, texture and aroma.</p>
+        <p>Carefully prepared and packed to preserve the bold flavour, distinctive aroma and character of every recipe.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

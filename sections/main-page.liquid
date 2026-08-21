@@ -1,35 +1,9 @@
-{% unless page.handle == 'about-us' %}
+{% unless page.handle == 'about-us' or template contains 'about-us' %}
 <style>.page-title{margin-bottom:40px;}.main-content{padding:0;}</style>
 <div class="container">
-  <h1 class="text-center page-title">{% if page.handle == 'about-us' %}About Us{% else %}{{ page.title }}{% endif %}</h1>
+  <h1 class="text-center page-title">{{ page.title }}</h1>
   <div class="content-block--page">
-    {% if page.handle == 'about-us' and page.content == blank %}
-      <div class="baan-about-content rte mx-auto" style="max-width:900px;">
-        <p class="lead text-center mb-5">Traditional recipes, thoughtfully selected ingredients, and bold Indian flavour in every jar.</p>
-
-        <h2>Food that feels like home</h2>
-        <p>Baan Foods was created to preserve the flavours that make an Indian meal memorable. We make pickles and pantry favourites inspired by time-honoured recipes, balancing spice, tang, texture, and aroma with care.</p>
-
-        <h2>Made with care</h2>
-        <p>We believe good food begins with good ingredients. Each recipe is prepared with carefully selected produce and spices, then packed to help retain its distinctive flavour. From familiar classics to unexpected combinations, our products are made to bring character to everyday meals.</p>
-
-        <h2>Rooted in tradition, made for today</h2>
-        <p>Our range celebrates regional tastes while fitting naturally into modern kitchens. Pair our pickles with rice, rotis, parathas, snacks, sandwiches, or any meal that needs a lively burst of flavour.</p>
-
-        <h2>Our promise</h2>
-        <ul>
-          <li>Authentic, flavour-led recipes</li>
-          <li>Carefully chosen ingredients</li>
-          <li>Thoughtful preparation and packing</li>
-          <li>Friendly support whenever you need us</li>
-        </ul>
-
-        <p>Thank you for welcoming Baan Foods to your table. We hope every jar brings a little more joy—and a lot more flavour—to your meals.</p>
-        <p class="mt-4"><a class="btn btn-theme" href="/collections/all">Explore our products</a></p>
-      </div>
-    {% else %}
-      {{ page.content }}
-    {% endif %}
+    {{ page.content }}
   </div>
 </div>
 {% endunless %}

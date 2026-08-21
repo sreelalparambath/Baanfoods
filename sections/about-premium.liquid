@@ -15,6 +15,39 @@
     <div class="baan-about__scroll" aria-hidden="true"><span></span>Discover our story</div>
   </div>
 
+  <div class="baan-about__brochure container">
+    <div class="baan-about__brochure-layout">
+      <div class="baan-about__brochure-media" data-aos="fade-right">
+        <p class="baan-about__eyebrow baan-about__eyebrow--dark">About Baan Foods</p>
+        <figure class="baan-about__brochure-image">
+          <img src="{{ 'baan-category-pickles-v1.png' | asset_url }}" loading="eager" width="1536" height="1152" alt="A premium selection of Baan pickles inspired by Kerala culinary traditions">
+          <figcaption><span>Crafted in Kerala</span><strong>Authentic flavour,<br>beautifully presented.</strong></figcaption>
+        </figure>
+      </div>
+      <div class="baan-about__brochure-copy" data-aos="fade-left">
+        <h2>Taste the tradition.<br>Love the flavour.</h2>
+        <div class="baan-about__brochure-story rte">
+          <p>Baan began its journey in 2025, rooted in Calicut and the Middle East, with a vision to build a trusted name in the food industry. What started as a passionate venture has evolved into a dynamic brand committed to authentic, high-quality and innovative food products that celebrate rich ethnic and culinary traditions.</p>
+          <p>At the heart of our range are premium pickles, crafted with carefully selected ingredients and traditional recipes, alongside peanut chikki products that bring together nuts and jaggery in a satisfying blend of taste, crunch and nutrition.</p>
+        </div>
+      </div>
+    </div>
+    <div class="baan-about__purpose-grid">
+      <article class="baan-about__purpose baan-about__purpose--vision" data-aos="fade-right">
+        <span class="baan-about__purpose-icon" aria-hidden="true">01</span>
+        <p class="baan-about__eyebrow">Our Vision</p>
+        <h3>Premium food with purpose.</h3>
+        <p>To bring the world a premium range of food products and supplements that anticipates evolving tastes and nutritional needs, while making a meaningful difference through quality, authenticity and responsibility.</p>
+      </article>
+      <article class="baan-about__purpose baan-about__purpose--mission" data-aos="fade-left">
+        <span class="baan-about__purpose-icon" aria-hidden="true">02</span>
+        <p class="baan-about__eyebrow">Our Mission</p>
+        <h3>Quality in every detail.</h3>
+        <p>To deliver freshness and consistency through sustainable, eco-friendly practices, supported by prompt service and transparency, trust and integrity in every aspect of our business.</p>
+      </article>
+    </div>
+  </div>
+
   <div class="baan-about__intro container">
     <div class="baan-about__intro-mark" aria-hidden="true">B</div>
     <div class="baan-about__intro-grid">
@@ -92,6 +125,9 @@
   .baan-about__button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 32px;border:1px solid var(--wine);background:var(--wine);color:#fff!important;font-weight:700;letter-spacing:.04em;border-radius:999px;transition:.3s ease}.baan-about__button:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
   .baan-about__button--light{background:#fff;border-color:#fff;color:var(--wine)!important}.baan-about__button--light:hover{background:#f3c08e;border-color:#f3c08e;color:var(--wine)!important}
   .baan-about__scroll{position:absolute;z-index:1;bottom:32px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:12px}.baan-about__scroll span{display:block;width:44px;height:1px;background:#fff}
+  .baan-about__brochure{padding-top:125px}.baan-about__brochure-layout{display:grid;grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr);gap:84px;align-items:start;margin-bottom:78px}.baan-about__brochure-media>.baan-about__eyebrow{margin:12px 0 34px}.baan-about__brochure-copy h2{font-size:clamp(42px,5vw,76px);line-height:1.02;letter-spacing:-.045em;color:var(--wine);margin:0 0 58px}.baan-about__brochure-story{font-size:18px;line-height:1.9}.baan-about__brochure-story p:first-child:first-letter{float:left;font-family:serif;font-size:76px;line-height:.72;padding:12px 12px 0 0;color:var(--red)}
+  .baan-about__brochure-image{position:relative;height:590px;margin:0;overflow:hidden;border-radius:180px 180px 18px 18px;background:#e9ded4;box-shadow:0 28px 70px rgba(65,27,17,.14)}.baan-about__brochure-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(32,12,7,.72),rgba(32,12,7,.02) 64%)}.baan-about__brochure-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:64% center}.baan-about__brochure-image figcaption{position:absolute;z-index:1;left:34px;right:28px;bottom:34px;color:#fff}.baan-about__brochure-image figcaption span{display:block;margin-bottom:10px;color:#f3c08e;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.baan-about__brochure-image figcaption strong{display:block;font-family:serif;font-size:30px;font-weight:500;line-height:1.08}
+  .baan-about__purpose-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.baan-about__purpose{position:relative;overflow:hidden;min-height:400px;padding:58px 54px;border-radius:22px}.baan-about__purpose--vision{background:var(--wine);color:#fff}.baan-about__purpose--mission{background:#f1c187;color:var(--ink)}.baan-about__purpose-icon{position:absolute;right:28px;top:8px;font-family:serif;font-size:132px;line-height:1;color:rgba(255,255,255,.08)}.baan-about__purpose--mission .baan-about__purpose-icon{color:rgba(117,22,16,.09)}.baan-about__purpose .baan-about__eyebrow{margin-bottom:70px}.baan-about__purpose--mission .baan-about__eyebrow{color:var(--wine)}.baan-about__purpose h3{position:relative;font-size:34px;line-height:1.15;margin:0 0 20px;color:inherit}.baan-about__purpose>p:last-child{position:relative;font-size:16px;line-height:1.85;margin:0;max-width:500px}.baan-about__purpose--vision>p:last-child{color:rgba(255,255,255,.8)}
   .baan-about__intro{position:relative;padding-top:130px;padding-bottom:130px}.baan-about__intro-mark{position:absolute;right:2%;top:20px;font-family:serif;font-size:300px;line-height:1;color:rgba(117,22,16,.035);font-weight:700}
   .baan-about__intro-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start}.baan-about__intro h2,.baan-about__craft h2,.baan-about__section-head h2,.baan-about__cta h2{font-size:clamp(38px,4.3vw,66px);line-height:1.08;letter-spacing:-.035em;color:var(--wine);margin:0}.baan-about__intro-copy{font-size:18px;line-height:1.9}.baan-about__intro-copy p:first-child:first-letter{float:left;font-family:serif;font-size:78px;line-height:.72;padding:12px 12px 0 0;color:var(--red)}
   .baan-about__craft{background:var(--cream);padding:110px 0}.baan-about__craft-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:100px;align-items:center}.baan-about__craft-image{position:relative}.baan-about__craft-image img{display:block;width:100%;height:720px;object-fit:cover;border-radius:180px 180px 16px 16px;box-shadow:0 35px 80px rgba(65,27,17,.16)}
@@ -100,8 +136,8 @@
   .baan-about__values{padding-top:130px;padding-bottom:130px}.baan-about__section-head{max-width:760px;margin:0 auto 70px}.baan-about__values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.baan-about__value{position:relative;padding:46px 36px;border:1px solid #eaded5;border-radius:16px;min-height:300px;transition:.35s ease;background:#fff}.baan-about__value:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(75,29,21,.1);border-color:transparent}.baan-about__value-number{display:block;font-size:12px;letter-spacing:.18em;color:var(--red);margin-bottom:54px}.baan-about__value h3{font-size:26px;color:var(--wine);margin-bottom:16px}.baan-about__value p{line-height:1.8;color:#675b56}
   .baan-about__quote{padding:120px 0;background:var(--wine);color:#fff}.baan-about__quote-mark{font-family:serif;font-size:110px;line-height:.5;color:#f3c08e}.baan-about__quote blockquote{max-width:960px;margin:20px auto 28px;font-family:serif;font-size:clamp(30px,4vw,54px);line-height:1.3;color:#fff}.baan-about__quote p{letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:#f3c08e}
   .baan-about__cta{margin-top:100px;margin-bottom:100px;padding:62px 70px;background:#f1c187;border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:40px}.baan-about__cta .baan-about__eyebrow{color:var(--wine)}.baan-about__cta h2{font-size:clamp(34px,4vw,56px);max-width:700px}
-  @media(max-width:991px){.baan-about__hero{min-height:660px;background-position:62% center}.baan-about__intro-grid,.baan-about__craft-grid{grid-template-columns:1fr;gap:50px}.baan-about__craft-image{max-width:650px;margin:auto}.baan-about__values-grid{grid-template-columns:1fr 1fr}.baan-about__craft-badge{right:20px}.baan-about__cta{padding:48px;align-items:flex-start;flex-direction:column}}
-  @media(max-width:767px){.baan-about__hero{min-height:700px;background-position:66% center}.baan-about__hero-overlay{background:linear-gradient(90deg,rgba(30,10,5,.88),rgba(30,10,5,.48))}.baan-about__hero-copy{padding:100px 8px 90px}.baan-about__hero h1{font-size:54px}.baan-about__hero-text{font-size:16px}.baan-about__intro{padding-top:80px;padding-bottom:80px}.baan-about__intro-grid{gap:34px}.baan-about__craft{padding:75px 0}.baan-about__craft-grid{gap:65px}.baan-about__craft-image img{height:520px;border-radius:100px 100px 12px 12px}.baan-about__craft-badge{width:118px;height:118px;bottom:-35px}.baan-about__craft-badge strong{font-size:30px}.baan-about__values{padding-top:80px;padding-bottom:80px}.baan-about__values-grid{grid-template-columns:1fr}.baan-about__value{min-height:0}.baan-about__quote{padding:90px 0}.baan-about__cta{margin-top:60px;margin-bottom:60px;padding:38px 28px}.baan-about__scroll{display:none}}
+  @media(max-width:991px){.baan-about__hero{min-height:660px;background-position:62% center}.baan-about__brochure-layout{grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);gap:44px}.baan-about__brochure-image{height:520px}.baan-about__brochure-copy h2{margin-bottom:38px}.baan-about__intro-grid,.baan-about__craft-grid{grid-template-columns:1fr;gap:50px}.baan-about__craft-image{max-width:650px;margin:auto}.baan-about__values-grid{grid-template-columns:1fr 1fr}.baan-about__craft-badge{right:20px}.baan-about__cta{padding:48px;align-items:flex-start;flex-direction:column}}
+  @media(max-width:767px){.baan-about__hero{min-height:700px;background-position:66% center}.baan-about__hero-overlay{background:linear-gradient(90deg,rgba(30,10,5,.88),rgba(30,10,5,.48))}.baan-about__hero-copy{padding:100px 8px 90px}.baan-about__hero h1{font-size:54px}.baan-about__hero-text{font-size:16px}.baan-about__brochure{padding-top:76px}.baan-about__brochure-layout{display:flex;flex-direction:column;gap:0;margin-bottom:54px}.baan-about__brochure-media{display:contents}.baan-about__brochure-media>.baan-about__eyebrow{order:1;margin-bottom:18px}.baan-about__brochure-copy{display:contents}.baan-about__brochure-copy h2{order:2;font-size:44px;margin-bottom:34px}.baan-about__brochure-story{order:3;font-size:16px;margin-bottom:38px}.baan-about__brochure-image{order:4;width:100%;height:430px;border-radius:100px 100px 14px 14px}.baan-about__brochure-image figcaption{left:26px;right:22px;bottom:28px}.baan-about__brochure-image figcaption strong{font-size:30px}.baan-about__purpose-grid{grid-template-columns:1fr}.baan-about__purpose{min-height:0;padding:40px 30px}.baan-about__purpose .baan-about__eyebrow{margin-bottom:48px}.baan-about__purpose-icon{font-size:100px}.baan-about__intro{padding-top:80px;padding-bottom:80px}.baan-about__intro-grid{gap:34px}.baan-about__craft{padding:75px 0}.baan-about__craft-grid{gap:65px}.baan-about__craft-image img{height:520px;border-radius:100px 100px 12px 12px}.baan-about__craft-badge{width:118px;height:118px;bottom:-35px}.baan-about__craft-badge strong{font-size:30px}.baan-about__values{padding-top:80px;padding-bottom:80px}.baan-about__values-grid{grid-template-columns:1fr}.baan-about__value{min-height:0}.baan-about__quote{padding:90px 0}.baan-about__cta{margin-top:60px;margin-bottom:60px;padding:38px 28px}.baan-about__scroll{display:none}}
 </style>
 {% endif %}
 
@@ -110,20 +146,20 @@
   "name": "Premium About Us",
   "settings": [
     {"type":"image_picker","id":"hero_image","label":"Hero image"},
-    {"type":"text","id":"eyebrow","label":"Hero eyebrow","default":"The Baan Foods story"},
-    {"type":"text","id":"heading","label":"Hero heading","default":"Tradition, bottled beautifully."},
-    {"type":"textarea","id":"hero_text","label":"Hero text","default":"We preserve the soulful flavours of Indian kitchens through honest ingredients, time-honoured recipes, and a generous dash of care."},
+    {"type":"text","id":"eyebrow","label":"Hero eyebrow","default":"Elegant · Authentic · Natural"},
+    {"type":"text","id":"heading","label":"Hero heading","default":"Kerala tradition, beautifully made."},
+    {"type":"textarea","id":"hero_text","label":"Hero text","default":"Authentic pickles and peanut chikki, crafted with carefully selected ingredients, traditional recipes and a generous dash of care."},
     {"type":"text","id":"button_label","label":"Button label","default":"Taste the collection"},
     {"type":"url","id":"button_link","label":"Button link"},
-    {"type":"text","id":"intro_eyebrow","label":"Introduction eyebrow","default":"Food that feels like home"},
-    {"type":"text","id":"intro_heading","label":"Introduction heading","default":"A small jar can hold a world of memories."},
-    {"type":"richtext","id":"intro_text","label":"Introduction text","default":"<p>Baan Foods began with a simple belief: the most memorable food is made with patience, instinct, and love. Our recipes celebrate the pickles and pantry favourites that have brought Indian tables to life for generations.</p><p>We honour those traditions while making them easy to enjoy in modern kitchens—one flavour-packed jar at a time.</p>"},
+    {"type":"text","id":"intro_eyebrow","label":"Introduction eyebrow","default":"From Innate Wellness Company"},
+    {"type":"text","id":"intro_heading","label":"Introduction heading","default":"The true essence of Kerala, shared with the world."},
+    {"type":"richtext","id":"intro_text","label":"Introduction text","default":"<p>Baan, a proud venture of Innate Wellness Company, was born from a passion for sharing Kerala's rich culinary heritage with the world.</p><p>Every product uses premium-quality ingredients and authentic recipes cherished for generations, with careful attention to quality and hygiene from sourcing through preparation.</p>"},
     {"type":"image_picker","id":"craft_image","label":"Craft image"},
     {"type":"text","id":"badge_number","label":"Badge number","default":"100%"},
     {"type":"text","id":"badge_text","label":"Badge text","default":"made with intention"},
     {"type":"text","id":"craft_eyebrow","label":"Craft eyebrow","default":"The craft behind every jar"},
-    {"type":"text","id":"craft_heading","label":"Craft heading","default":"Selected by hand. Layered with flavour."},
-    {"type":"richtext","id":"craft_text","label":"Craft text","default":"<p>Good pickles begin long before the jar is sealed. We choose ingredients for their character, bring spices together for balance, and give every recipe the time it needs to develop its distinctive taste.</p><p>The result is food that feels vibrant, familiar, and deeply satisfying.</p>"},
+    {"type":"text","id":"craft_heading","label":"Craft heading","default":"Premium ingredients. Authentic recipes."},
+    {"type":"richtext","id":"craft_text","label":"Craft text","default":"<p>From sourcing raw materials to meticulous preparation, we uphold high standards of quality and hygiene at every step.</p><p>Our elegant packaging is designed to retain freshness and natural goodness while reflecting the richness of Kerala's culture.</p>"},
     {"type":"textarea","id":"quote","label":"Quote","default":"We do not simply make accompaniments. We preserve the feeling of a meal shared with people you love."},
     {"type":"text","id":"quote_credit","label":"Quote credit","default":"The Baan Foods philosophy"},
     {"type":"text","id":"cta_heading","label":"CTA heading","default":"Bring a little more flavour to the table."},

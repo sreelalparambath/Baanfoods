@@ -95,8 +95,8 @@
     <h3 class="mb-2 h2 br-title">{{ collection.title }}</h3>
     {% elsif template contains 'page' %}
     <h3 class="mb-2 h2 br-title">{% case template.suffix %}{% when 'shipping-policy' %}Shipping Policy{% when 'refund-policy' %}Refund Policy{% when 'terms-and-conditions' %}Terms and Conditions{% else %}{{ page.title }}{% endcase %}</h3>
-    {% elsif template contains 'product' and collection.handle %}	
-      <h3 class="mb-2 h2 br-title">{{ page.title }}</h3>
+    {% elsif template contains 'product' %}
+      <h1 class="mb-2 br-title">{{ product.title }}</h1>
     {% elsif template contains 'blog' %}	
       <h3 class="mb-2 h2 br-title">{{ blog.title }}</h3>
     {% endif %}
