@@ -50,8 +50,8 @@
               {%- endif -%}
             {%- endif -%}
           {%- endif -%}
-          {%- include 'processMenuTitle' with itemName:link.title -%}
-          {%- include 'processMenuLabel' with itemName:link.title -%}
+          {%- include 'processMenuTitle' with itemName.link.title, itemName: link.title -%}
+          {%- include 'processMenuLabel' with itemName.link.title, itemName: link.title -%}
         </a>
         {%- capture apbg -%}vapmenuitem_ebg_{{ intMega }}{%- endcapture -%}
         <div class="site-nav__dropdown meganav meganav-{{intMega}} shadow" 
@@ -77,8 +77,8 @@
               {%- endif -%}
             {%- endif -%}
           {%- endif -%}
-          {%- include 'processMenuTitle' with itemName:link.title -%}
-          {%- include 'processMenuLabel' with itemName:link.title -%}
+          {%- include 'processMenuTitle' with itemName.link.title, itemName: link.title -%}
+          {%- include 'processMenuLabel' with itemName.link.title, itemName: link.title -%}
         </a>
         <div class="site-nav__dropdown meganav shadow">
           <ul class="meganav__nav">
@@ -104,8 +104,8 @@
               {%- endif -%}
             {%- endif -%}
           {%- endif -%}
-          {%- include 'processMenuTitle' with itemName:link.title -%}
-          {%- include 'processMenuLabel' with itemName:link.title -%}
+          {%- include 'processMenuTitle' with itemName.link.title, itemName: link.title -%}
+          {%- include 'processMenuLabel' with itemName.link.title, itemName: link.title -%}
         </a>
       </li>
       {%- endif -%}
@@ -137,8 +137,8 @@
                 {%- endif -%}
               {%- endif -%}
             {%- endif -%}
-            {%- include 'processMenuTitle' with itemName:link.title -%}
-            {%- include 'processMenuLabel' with itemName:link.title -%}
+            {%- include 'processMenuTitle' with itemName.link.title, itemName: link.title -%}
+            {%- include 'processMenuLabel' with itemName.link.title, itemName: link.title -%}
           </a>
           <ul class="mbnav-dropdown list--no-bullets">
             {%- for childlink in link.links -%}
@@ -148,15 +148,15 @@
                 {%- if childlink.links != blank -%}
                 <input type="checkbox" name="item" />
                 <a class="mbnav-title" href="{{ childlink_url }}">
-                  {%- include 'processMenuTitle' with itemName:childlink.title -%}
-                  {%- include 'processMenuLabel' with itemName:childlink.title -%}
+                  {%- include 'processMenuTitle' with itemName.childlink.title, itemName: childlink.title -%}
+                  {%- include 'processMenuLabel' with itemName.childlink.title, itemName: childlink.title -%}
                 </a>
                 <ul class="mbnav-dropdown list--no-bullets">
                   {%- for grandchildlink in childlink.links -%}
                   <li>
                     <a href="{{ grandchildlink.url }}">
-                      {%- include 'processMenuTitle' with itemName:grandchildlink.title -%}
-                      {%- include 'processMenuLabel' with itemName:grandchildlink.title -%}
+                      {%- include 'processMenuTitle' with itemName.grandchildlink.title, itemName: grandchildlink.title -%}
+                      {%- include 'processMenuLabel' with itemName.grandchildlink.title, itemName: grandchildlink.title -%}
                     </a>
                   </li>
                   {%- endfor -%}
@@ -164,8 +164,8 @@
               </div>
               {%- else -%}
               <a href="{{ childlink_url }}">
-                {%- include 'processMenuTitle' with itemName:childlink.title -%}
-                {%- include 'processMenuLabel' with itemName:childlink.title -%}
+                {%- include 'processMenuTitle' with itemName.childlink.title, itemName: childlink.title -%}
+                {%- include 'processMenuLabel' with itemName.childlink.title, itemName: childlink.title -%}
               </a>
               {%- endif -%}
             </li>
@@ -191,11 +191,81 @@
               {%- endif -%}
             {%- endif -%}
           {%- endif -%}
-          {%- include 'processMenuTitle' with itemName:link.title -%}
-          {%- include 'processMenuLabel' with itemName:link.title -%}
+          {%- include 'processMenuTitle' with itemName.link.title, itemName: link.title -%}
+          {%- include 'processMenuLabel' with itemName.link.title, itemName: link.title -%}
         </a>
       </li>
       {%- endif -%}
       {% endfor %}
     </ul>
-  </nav>
+  </nav>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- include 'processMenuTitle' with itemName:link.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 2516..2597
+- from: "{%- include 'processMenuLabel' with itemName:link.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 2608..2689
+- from: "{%- include 'processMenuTitle' with itemName:link.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 3922..4003
+- from: "{%- include 'processMenuLabel' with itemName:link.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 4014..4095
+- from: "{%- include 'processMenuTitle' with itemName:link.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 5037..5118
+- from: "{%- include 'processMenuLabel' with itemName:link.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 5129..5210
+- from: "{%- include 'processMenuTitle' with itemName:link.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 6518..6599
+- from: "{%- include 'processMenuLabel' with itemName:link.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 6612..6693
+- from: "{%- include 'processMenuTitle' with itemName:childlink.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.childlink.title, itemName: childlink.title
+    -%}"
+  position: 7128..7219
+- from: "{%- include 'processMenuLabel' with itemName:childlink.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.childlink.title, itemName: childlink.title
+    -%}"
+  position: 7238..7329
+- from: "{%- include 'processMenuTitle' with itemName:grandchildlink.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.grandchildlink.title, itemName:
+    grandchildlink.title -%}"
+  position: 7577..7678
+- from: "{%- include 'processMenuLabel' with itemName:grandchildlink.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.grandchildlink.title, itemName:
+    grandchildlink.title -%}"
+  position: 7701..7802
+- from: "{%- include 'processMenuTitle' with itemName:childlink.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.childlink.title, itemName: childlink.title
+    -%}"
+  position: 8016..8107
+- from: "{%- include 'processMenuLabel' with itemName:childlink.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.childlink.title, itemName: childlink.title
+    -%}"
+  position: 8124..8215
+- from: "{%- include 'processMenuTitle' with itemName:link.title -%}"
+  to: "{%- include 'processMenuTitle' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 9082..9163
+- from: "{%- include 'processMenuLabel' with itemName:link.title -%}"
+  to: "{%- include 'processMenuLabel' with itemName.link.title, itemName: link.title
+    -%}"
+  position: 9174..9255
+{%- endcomment -%}
