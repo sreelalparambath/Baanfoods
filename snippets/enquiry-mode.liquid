@@ -73,7 +73,38 @@
     .baan-enquiry-field textarea { min-height:110px; resize:vertical; }
     .baan-enquiry-form__actions { display:flex; gap:10px; align-items:center; margin-top:20px; }
     .baan-enquiry-form__actions .baan-enquiry-button { margin:0; }
-    .baan-enquiry-success { padding:13px 15px; margin:15px 0; background:#eaf7ed; color:#185c29; }
+    .baan-enquiry-success-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 100001;
+      width: min(440px, calc(100% - 30px));
+      padding: 38px 30px;
+      border-radius: 10px;
+      background: #fff;
+      color: #222;
+      text-align: center;
+      box-shadow: 0 20px 70px rgba(0,0,0,.3);
+      transform: translate(-50%, -50%);
+    }
+    .baan-enquiry-success-popup.is-open { display: block; }
+    .baan-enquiry-success-popup__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #e8f7ec;
+      color: #187a36;
+      font-size: 34px;
+      font-weight: 700;
+    }
+    .baan-enquiry-success-popup h3 { margin: 0 0 10px; font-size: 28px; }
+    .baan-enquiry-success-popup p { margin: 0 0 22px; color: #626262; }
+    .baan-enquiry-success-popup .baan-enquiry-button { margin: 0; min-width: 150px; }
     .baan-enquiry-errors { color:#a21b1b; }
     @media (max-width: 575px) { .baan-enquiry-dialog__inner { padding:22px 18px; } }
   </style>
@@ -91,7 +122,7 @@
 
       {%- form 'contact', id: 'BaanEnquiryForm', return_to: 'back' -%}
         {%- if form.posted_successfully? -%}
-          <div class="baan-enquiry-success" role="status">Thank you. Your enquiry has been sent successfully.</div>
+          <span id="BaanEnquirySuccessMarker" hidden></span>
         {%- endif -%}
         {%- if form.errors -%}
           <div class="baan-enquiry-errors" role="alert">{{ form.errors | default_errors }}</div>
@@ -128,6 +159,13 @@
     </div>
   </div>
 
+  <div id="BaanEnquirySuccess" class="baan-enquiry-success-popup" role="alertdialog" aria-modal="true" aria-labelledby="BaanEnquirySuccessTitle" tabindex="-1">
+    <div class="baan-enquiry-success-popup__icon" aria-hidden="true">✓</div>
+    <h3 id="BaanEnquirySuccessTitle">Enquiry sent</h3>
+    <p>Thank you. We have received your enquiry and will contact you soon.</p>
+    <button type="button" class="baan-enquiry-button baan-enquiry-success-popup__close">Close</button>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var dialog = document.getElementById('BaanEnquiry');
@@ -154,6 +192,23 @@
 
       function closeEnquiry() {
         dialog.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function openSuccess() {
+        var success = document.getElementById('BaanEnquirySuccess');
+        if (!success) return;
+        dialog.classList.remove('is-open');
+        backdrop.classList.add('is-open');
+        success.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        success.focus();
+      }
+
+      function closeSuccess() {
+        var success = document.getElementById('BaanEnquirySuccess');
+        if (success) success.classList.remove('is-open');
         backdrop.classList.remove('is-open');
         document.body.style.overflow = '';
       }
@@ -188,9 +243,19 @@
       }
 
       document.querySelector('.baan-enquiry-dialog__close').addEventListener('click', closeEnquiry);
-      backdrop.addEventListener('click', closeEnquiry);
-      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeEnquiry(); });
-      if ({{ form.posted_successfully? | json }} || {{ form.errors | default: false | json }}) openEnquiry(productDetails(document));
+      var successClose = document.querySelector('.baan-enquiry-success-popup__close');
+      if (successClose) successClose.addEventListener('click', closeSuccess);
+      backdrop.addEventListener('click', function () {
+        if (document.querySelector('.baan-enquiry-success-popup.is-open')) closeSuccess();
+        else closeEnquiry();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        if (document.querySelector('.baan-enquiry-success-popup.is-open')) closeSuccess();
+        else closeEnquiry();
+      });
+      if (document.getElementById('BaanEnquirySuccessMarker')) openSuccess();
+      else if ({{ form.errors | default: false | json }}) openEnquiry(productDetails(document));
     });
   </script>
 {%- endif -%}
