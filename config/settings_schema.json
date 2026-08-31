@@ -8,6 +8,30 @@
     "theme_support_url": "https:\/\/apollotheme.com\/contact\/"
   },
   {
+    "name": "Enquiry mode",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enquiry_mode",
+        "label": "Replace shopping with enquiries",
+        "default": true,
+        "info": "Turn this off later to restore Add to cart, Buy now, cart, and checkout controls."
+      },
+      {
+        "type": "text",
+        "id": "enquiry_button_text",
+        "label": "Button text",
+        "default": "Enquire now"
+      },
+      {
+        "type": "text",
+        "id": "enquiry_heading",
+        "label": "Form heading",
+        "default": "Product enquiry"
+      }
+    ]
+  },
+  {
     "name": "Select layout 🕹️",
     "settings": [
       {

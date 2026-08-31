@@ -1,0 +1,196 @@
+{%- if settings.enquiry_mode -%}
+  <style>
+    /* Keep this reversible: switching off Enquiry mode restores the theme's cart UI. */
+    .js-grid-cart,
+    .product-form__quantity-submit,
+    .product-form__buynow,
+    .shopify-payment-button,
+    .qv-add-to-cart,
+    .js-customform [name="add"],
+    #js-sticky-btn,
+    .sticky-cart-wr,
+    .js-mini-cart,
+    a[href="/checkout"],
+    form[action="/cart/add"] [name="add"],
+    .product-card__availability,
+    .product-single__availability { display: none !important; }
+
+    .baan-enquiry-button {
+      position: relative;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 24px;
+      margin-top: 15px;
+      border: 1px solid {{ settings.color_primary }};
+      border-radius: var(--g-button-radius, 3px);
+      background: {{ settings.color_primary }};
+      color: #fff !important;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+    .baan-enquiry-button:hover { opacity: .86; }
+    .product-card .baan-enquiry-button { width: 100%; font-size: 12px; }
+    .baan-enquiry-button--product { width: 100%; }
+
+    .baan-enquiry-dialog {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      z-index: 99999;
+      width: min(560px, calc(100% - 30px));
+      max-height: calc(100vh - 40px);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 10px;
+      background: #fff !important;
+      color: #222;
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
+      overflow: auto;
+      transform: translate(-50%, -50%);
+    }
+    .baan-enquiry-dialog.is-open { display: block; }
+    .baan-enquiry-backdrop { display:none; position:fixed; inset:0; z-index:99998; background:rgba(0,0,0,.62); }
+    .baan-enquiry-backdrop.is-open { display:block; }
+    .baan-enquiry-dialog__inner { padding: 30px; }
+    .baan-enquiry-dialog__head { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; }
+    .baan-enquiry-dialog__head h2 { margin: 0 0 6px; font-size: clamp(27px, 4vw, 36px); line-height: 1.12; }
+    .baan-enquiry-dialog__head p { margin: 0; color: #626262; }
+    .baan-enquiry-dialog__close { border:0; background:transparent; font-size:30px; line-height:1; cursor:pointer; }
+    .baan-enquiry-field { margin-top: 16px; }
+    .baan-enquiry-field label { display:block; margin-bottom:6px; font-weight:600; }
+    .baan-enquiry-field input,
+    .baan-enquiry-field textarea { width:100%; padding:11px 13px; border:1px solid #d7d7d7; border-radius:4px; }
+    .baan-enquiry-field textarea { min-height:110px; resize:vertical; }
+    .baan-enquiry-form__actions { display:flex; gap:10px; align-items:center; margin-top:20px; }
+    .baan-enquiry-form__actions .baan-enquiry-button { margin:0; }
+    .baan-enquiry-success { padding:13px 15px; margin:15px 0; background:#eaf7ed; color:#185c29; }
+    .baan-enquiry-errors { color:#a21b1b; }
+    @media (max-width: 575px) { .baan-enquiry-dialog__inner { padding:22px 18px; } }
+  </style>
+
+  <div id="BaanEnquiryBackdrop" class="baan-enquiry-backdrop"></div>
+  <div id="BaanEnquiry" class="baan-enquiry-dialog" role="dialog" aria-modal="true" aria-labelledby="BaanEnquiryTitle" tabindex="-1">
+    <div class="baan-enquiry-dialog__inner">
+      <div class="baan-enquiry-dialog__head">
+        <div>
+          <h2 id="BaanEnquiryTitle">{{ settings.enquiry_heading | default: 'Product enquiry' | escape }}</h2>
+          <p>Tell us what you need and our team will contact you.</p>
+        </div>
+        <button class="baan-enquiry-dialog__close" type="button" aria-label="Close enquiry form">&times;</button>
+      </div>
+
+      {%- form 'contact', id: 'BaanEnquiryForm', return_to: 'back' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="baan-enquiry-success" role="status">Thank you. Your enquiry has been sent successfully.</div>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <div class="baan-enquiry-errors" role="alert">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+        <input type="hidden" name="contact[Enquiry type]" value="Product enquiry">
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryProduct">Product</label>
+          <input id="BaanEnquiryProduct" name="contact[Product]" value="{% if product %}{{ product.title | escape }} — {{ shop.url }}{{ product.url }}{% endif %}" readonly required>
+        </div>
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryName">Name</label>
+          <input id="BaanEnquiryName" name="contact[name]" autocomplete="name" value="{% if customer %}{{ customer.name | escape }}{% endif %}" required>
+        </div>
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryEmail">Email</label>
+          <input id="BaanEnquiryEmail" type="email" name="contact[email]" autocomplete="email" value="{% if customer %}{{ customer.email | escape }}{% endif %}" required>
+        </div>
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryPhone">Phone</label>
+          <input id="BaanEnquiryPhone" type="tel" name="contact[phone]" autocomplete="tel" required>
+        </div>
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryQuantity">Required quantity</label>
+          <input id="BaanEnquiryQuantity" type="number" name="contact[Quantity]" min="1" value="1">
+        </div>
+        <div class="baan-enquiry-field">
+          <label for="BaanEnquiryMessage">Message</label>
+          <textarea id="BaanEnquiryMessage" name="contact[body]" placeholder="Packaging, delivery location, or any other requirement"></textarea>
+        </div>
+        <div class="baan-enquiry-form__actions">
+          <button type="submit" class="baan-enquiry-button baan-enquiry-button--submit">Send enquiry</button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dialog = document.getElementById('BaanEnquiry');
+      var backdrop = document.getElementById('BaanEnquiryBackdrop');
+      var productField = document.getElementById('BaanEnquiryProduct');
+      if (!dialog || !productField) return;
+
+      function productDetails(card) {
+        var titleNode = card && card.querySelector('.product-single__title, .product-card__name, .card__heading a, .qv-product-title');
+        var linkNode = card && card.querySelector('a.product-card__name[href*="/products/"], .card__heading a[href*="/products/"], a.product-card__image[href*="/products/"]');
+        return {
+          title: titleNode ? titleNode.textContent.trim() : {{ product.title | default: '' | json }},
+          url: linkNode ? linkNode.href : window.location.origin + window.location.pathname
+        };
+      }
+
+      function openEnquiry(details) {
+        productField.value = details.title ? details.title + ' — ' + details.url : details.url;
+        dialog.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        dialog.focus();
+      }
+
+      function closeEnquiry() {
+        dialog.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function (event) {
+        var button = event.target.closest('.baan-enquiry-button--product, .baan-enquiry-button--card');
+        if (!button) return;
+        event.preventDefault();
+        openEnquiry(productDetails(button.closest('.js-product-card, .card-wrapper, .product-single__meta, [data-section-type="product"]')));
+      });
+
+      document.querySelectorAll('.js-product-card, .card-wrapper').forEach(function (card) {
+        if (card.querySelector('.baan-enquiry-button')) return;
+        var info = card.querySelector('.product-card__info, .card__content:last-child') || card;
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'baan-enquiry-button baan-enquiry-button--card';
+        button.textContent = {{ settings.enquiry_button_text | default: 'Enquire now' | json }};
+        info.appendChild(button);
+      });
+
+      if ({{ request.page_type | json }} === 'product') {
+        var productContent = document.querySelector('.product-single__content, .product-single__meta, [data-section-type="product"]');
+        if (productContent && !productContent.querySelector('.baan-enquiry-button--product')) {
+          var productButton = document.createElement('button');
+          productButton.type = 'button';
+          productButton.className = 'baan-enquiry-button baan-enquiry-button--product';
+          productButton.textContent = {{ settings.enquiry_button_text | default: 'Enquire now' | json }};
+          var purchaseForm = productContent.querySelector('.product-form');
+          (purchaseForm || productContent).appendChild(productButton);
+        }
+      }
+
+      document.querySelector('.baan-enquiry-dialog__close').addEventListener('click', closeEnquiry);
+      backdrop.addEventListener('click', closeEnquiry);
+      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeEnquiry(); });
+      if ({{ form.posted_successfully? | json }} || {{ form.errors | default: false | json }}) openEnquiry(productDetails(document));
+    });
+  </script>
+{%- endif -%}
